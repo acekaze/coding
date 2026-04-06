@@ -24,6 +24,15 @@
             wiki 폴더의 마크다운을 그대로 읽고, index.md를 중심으로 탐색하는
             가벼운 정적 페이지입니다.
           </p>
+          <div class="hero-actions">
+            <a class="hero-link" href="#wiki/overview.md">Start with overview</a>
+            <a class="hero-link" href="#wiki/analyses/current-workstream-map-2026-04.md">
+              Open workstream map
+            </a>
+            <a class="hero-link" href="#wiki/entities/jeon-jongmok.md">
+              View portfolio anchor
+            </a>
+          </div>
         </div>
         <div class="hero-meta">
           <div class="meta-block">
@@ -52,6 +61,8 @@
               placeholder="title, summary, section"
               autocomplete="off"
             />
+            <div id="search-status" class="search-status">Loading pages...</div>
+            <div id="section-filters" class="section-filters" aria-label="Section filters"></div>
           </div>
           <nav id="sidebar-nav" class="sidebar-nav" aria-label="Wiki navigation"></nav>
         </aside>
@@ -62,6 +73,10 @@
             <a id="source-link" class="source-link" href="./wiki/index.md" target="_blank" rel="noreferrer">
               Open raw markdown
             </a>
+          </div>
+          <div class="reader-assists">
+            <div id="related-pages" class="assist-block"></div>
+            <div id="outline-nav" class="assist-block"></div>
           </div>
           <article class="document">
             <div id="document-body" class="document-body">

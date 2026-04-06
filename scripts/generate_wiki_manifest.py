@@ -91,6 +91,22 @@ def find_summary(body: str) -> str:
     if source_lines:
       return " ".join(source_lines)
 
+    capture = False
+    short_answer_lines: list[str] = []
+    for line in lines:
+      if line.startswith("## Short answer"):
+        capture = True
+        continue
+      if capture and line.startswith("## "):
+        break
+      if capture and line.strip():
+        short_answer_lines.append(line.strip())
+      elif capture and short_answer_lines:
+        break
+
+    if short_answer_lines:
+      return " ".join(short_answer_lines)
+
     seen_h1 = False
     fallback_lines: list[str] = []
     for line in lines:

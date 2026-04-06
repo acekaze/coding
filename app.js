@@ -6,6 +6,8 @@ const state = {
   entries: [],
   filteredEntries: [],
   currentPath: "",
+  searchQuery: "",
+  sectionFilter: "all",
 };
 
 const pageCountEl = document.getElementById("page-count");
@@ -15,7 +17,11 @@ const sidebarNavEl = document.getElementById("sidebar-nav");
 const documentBodyEl = document.getElementById("document-body");
 const readerMetaEl = document.getElementById("reader-meta");
 const searchInputEl = document.getElementById("search-input");
+const searchStatusEl = document.getElementById("search-status");
+const sectionFiltersEl = document.getElementById("section-filters");
 const sourceLinkEl = document.getElementById("source-link");
+const relatedPagesEl = document.getElementById("related-pages");
+const outlineNavEl = document.getElementById("outline-nav");
 
 function parseFrontmatter(markdown) {
   if (!markdown.startsWith("---")) {
@@ -63,6 +69,21 @@ function parseFrontmatter(markdown) {
   return { data, body };
 }
 
+function sectionLabel(section) {
+  if (section === "all") {
+    return "All";
+  }
+  return section.charAt(0).toUpperCase() + section.slice(1);
+}
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[`~!@#$%^&*()+=,[\]{};:'"\\|<>/?]+/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
 function resolveInternalPath(currentPath, href) {
   const currentParts = currentPath.split("/");
   currentParts.pop();
@@ -81,7 +102,7 @@ function resolveInternalPath(currentPath, href) {
 }
 
 function renderFrontmatter(data) {
-  const keys = Object.keys(data).filter((key) => !["title"].includes(key));
+  const keys = Object.keys(data).filter((key) => !["title", "related"].includes(key));
   if (!keys.length) {
     return "";
   }
@@ -132,6 +153,41 @@ function configureMarkdownRenderer(currentPath) {
   });
 }
 
+function sectionCounts() {
+  const counts = new Map();
+  for (const entry of state.entries) {
+    counts.set(entry.section, (counts.get(entry.section) || 0) + 1);
+  }
+  return counts;
+}
+
+function renderSectionFilters() {
+  const counts = sectionCounts();
+  const sections = ["all", ...Array.from(counts.keys()).sort()];
+
+  sectionFiltersEl.innerHTML = "";
+
+  for (const section of sections) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "filter-chip";
+    if (state.sectionFilter === section) {
+      button.classList.add("is-active");
+    }
+    button.dataset.section = section;
+    button.innerHTML = `
+      <span>${sectionLabel(section)}</span>
+      <span class="filter-chip-count">${section === "all" ? state.entries.length : counts.get(section)}</span>
+    `;
+    button.addEventListener("click", () => {
+      state.sectionFilter = section;
+      applyFilter();
+      renderSectionFilters();
+    });
+    sectionFiltersEl.appendChild(button);
+  }
+}
+
 function renderNav() {
   const sections = new Map();
   for (const entry of state.filteredEntries) {
@@ -149,7 +205,7 @@ function renderNav() {
 
     const title = document.createElement("h2");
     title.className = "section-title";
-    title.textContent = section;
+    title.textContent = sectionLabel(section);
     group.appendChild(title);
 
     const list = document.createElement("div");
@@ -187,9 +243,15 @@ function renderNav() {
   }
 }
 
+function renderSearchStatus() {
+  const queryText = state.searchQuery ? ` for "${state.searchQuery}"` : "";
+  const sectionText = state.sectionFilter === "all" ? "" : ` in ${sectionLabel(state.sectionFilter)}`;
+  searchStatusEl.textContent = `${state.filteredEntries.length} page${state.filteredEntries.length === 1 ? "" : "s"}${queryText}${sectionText}`;
+}
+
 function renderReaderMeta(entry, data) {
   const chips = [];
-  chips.push(`<span class="meta-chip">${entry.section}</span>`);
+  chips.push(`<span class="meta-chip">${sectionLabel(entry.section)}</span>`);
 
   if (data.type) {
     chips.push(`<span class="meta-chip">${data.type}</span>`);
@@ -200,6 +262,59 @@ function renderReaderMeta(entry, data) {
   }
 
   readerMetaEl.innerHTML = chips.join("");
+}
+
+function renderAssistBlock(targetEl, title, links) {
+  if (!links.length) {
+    targetEl.innerHTML = "";
+    return;
+  }
+
+  const linkHtml = links
+    .map(
+      (link) =>
+        `<a class="assist-link" href="${link.href}">${link.label}</a>`,
+    )
+    .join("");
+
+  targetEl.innerHTML = `
+    <section class="assist-card">
+      <p class="assist-title">${title}</p>
+      <div class="assist-links">${linkHtml}</div>
+    </section>
+  `;
+}
+
+function enhanceDocumentContent() {
+  const headings = Array.from(documentBodyEl.querySelectorAll("h2, h3"));
+  const outlineLinks = [];
+
+  for (const heading of headings) {
+    const id = slugify(heading.textContent || "");
+    if (!id) {
+      continue;
+    }
+    heading.id = id;
+    outlineLinks.push({
+      href: `#${id}`,
+      label: heading.textContent.trim(),
+    });
+  }
+
+  renderAssistBlock(outlineNavEl, "On this page", outlineLinks.slice(0, 10));
+}
+
+function renderRelatedPages(data) {
+  const relatedPaths = Array.isArray(data.related) ? data.related : [];
+  const links = relatedPaths
+    .map((path) => state.entries.find((entry) => entry.path === path))
+    .filter(Boolean)
+    .map((entry) => ({
+      href: `#${encodeURIComponent(entry.path)}`,
+      label: entry.heading || entry.title,
+    }));
+
+  renderAssistBlock(relatedPagesEl, "Linked pages", links);
 }
 
 async function loadPage(path) {
@@ -223,29 +338,42 @@ async function loadPage(path) {
     summary: "",
   };
 
+  document.title = `${entry.heading || entry.title} | LLM Wiki Workspace`;
   configureMarkdownRenderer(path);
   renderReaderMeta(entry, data);
+  renderRelatedPages(data);
 
   const frontmatterHtml = renderFrontmatter(data);
   const contentHtml = marked.parse(body);
   documentBodyEl.innerHTML = `${frontmatterHtml}${contentHtml}`;
+  enhanceDocumentContent();
   renderNav();
 }
 
 function applyFilter() {
   const query = searchInputEl.value.trim().toLowerCase();
-  if (!query) {
-    state.filteredEntries = [...state.entries];
-  } else {
-    state.filteredEntries = state.entries.filter((entry) => {
-      const haystack = [entry.section, entry.title, entry.heading, entry.summary]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return haystack.includes(query);
-    });
-  }
+  state.searchQuery = searchInputEl.value.trim();
 
+  state.filteredEntries = state.entries.filter((entry) => {
+    const matchesSection =
+      state.sectionFilter === "all" || entry.section === state.sectionFilter;
+    if (!matchesSection) {
+      return false;
+    }
+
+    if (!query) {
+      return true;
+    }
+
+    const haystack = [entry.section, entry.title, entry.heading, entry.summary]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    return haystack.includes(query);
+  });
+
+  renderSearchStatus();
   renderNav();
 }
 
@@ -255,15 +383,27 @@ function currentHashPath() {
 }
 
 async function handleRouteChange() {
-  const path = currentHashPath();
-  const exists = state.entries.some((entry) => entry.path === path) || path === DEFAULT_PAGE;
-  const target = exists ? path : DEFAULT_PAGE;
+  const hash = window.location.hash;
 
-  try {
-    await loadPage(target);
-  } catch (error) {
-    documentBodyEl.innerHTML = `<p class="empty-state">문서를 불러오지 못했습니다: ${target}</p>`;
-    console.error(error);
+  if (hash.startsWith("#wiki%2F") || hash.startsWith("#wiki/")) {
+    const path = currentHashPath();
+    const exists = state.entries.some((entry) => entry.path === path) || path === DEFAULT_PAGE;
+    const target = exists ? path : DEFAULT_PAGE;
+
+    try {
+      await loadPage(target);
+    } catch (error) {
+      documentBodyEl.innerHTML = `<p class="empty-state">문서를 불러오지 못했습니다: ${target}</p>`;
+      console.error(error);
+    }
+    return;
+  }
+
+  if (hash.startsWith("#") && hash.length > 1) {
+    const target = document.getElementById(hash.slice(1));
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 }
 
@@ -278,17 +418,23 @@ async function init() {
   state.filteredEntries = [...state.entries];
 
   pageCountEl.textContent = String(state.entries.length);
-  sectionCountEl.textContent = String(
-    new Set(state.entries.map((entry) => entry.section)).size,
-  );
+  sectionCountEl.textContent = String(new Set(state.entries.map((entry) => entry.section)).size);
   manifestDateEl.textContent = state.manifest.generated_at || "-";
 
+  renderSectionFilters();
+  renderSearchStatus();
   renderNav();
   await handleRouteChange();
 }
 
 searchInputEl.addEventListener("input", applyFilter);
 window.addEventListener("hashchange", handleRouteChange);
+window.addEventListener("keydown", (event) => {
+  if (event.key === "/" && document.activeElement !== searchInputEl) {
+    event.preventDefault();
+    searchInputEl.focus();
+  }
+});
 
 init().catch((error) => {
   documentBodyEl.innerHTML = `<p class="empty-state">초기화에 실패했습니다.</p>`;

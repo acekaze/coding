@@ -121,6 +121,14 @@ This workspace also includes a lightweight static wiki viewer:
 
 The viewer reads the markdown in `wiki/` directly and uses `wiki-manifest.json` for navigation.
 
+Current viewer features:
+
+- section filters
+- live search over title, heading, summary, and section
+- related-page chips from page frontmatter
+- on-page outline chips for quick jumps
+- `/` keyboard shortcut to focus search
+
 Refresh the manifest after adding or renaming wiki pages:
 
 ```text
