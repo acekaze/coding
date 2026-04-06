@@ -12,6 +12,7 @@ related:
   - wiki/log.md
   - wiki/analyses/current-workstream-map-2026-04.md
   - wiki/sources/2026-04-06-first-launch-wiki-routine.md
+  - wiki/sources/2026-04-06-automated-codex-wiki-sync.md
 ---
 
 # Internal wiki operations loop
@@ -23,7 +24,7 @@ How should this wiki actually be used as an internal tool, day to day?
 ## Short answer
 
 Use it as an internal control tower, not as a second copy of every project.
-When Codex is first opened each morning, re-orient on the wiki, scan the tracked project folders, ingest only meaningful changes, and leave contradictions visible.
+Either run the loop when Codex is first opened each morning, or use one designated automation host to run the loop automatically and publish safe changes back to GitHub.
 
 ## Recommended loop
 
@@ -34,6 +35,13 @@ When Codex is first opened each morning, re-orient on the wiki, scan the tracked
 - check the latest entries in `wiki/log.md`
 - scan the tracked projects for materially changed documents
 - ingest only the changes that affect direction, current state, or reusable language
+
+### Automatic host mode
+
+- use one primary machine as the only automation host
+- launch Codex automatically at logon and before the morning sync window
+- keep the morning automation active so it can update and publish safe wiki changes
+- let other devices consume the pushed state instead of competing to auto-publish
 
 ### During the day
 

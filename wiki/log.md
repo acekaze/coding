@@ -31,3 +31,9 @@ Use this file as an append-only timeline.
 - added a new raw note and source page capturing the decision to run the wiki loop at first launch instead of a fixed 09:00 schedule
 - updated the operating guide, prompt starter, and operations analysis to reflect the first-launch ritual
 - removed the GitHub Pages workflow because the current private repository state is not eligible for Pages hosting
+
+## [2026-04-06] ingest | automated codex wiki sync
+
+- added scripts and prompt guidance for using one Windows machine as the automatic Codex sync host
+- documented the shared-use rule that only one device should auto-publish while other devices consume the pushed state
+- updated the operating guide and operations analysis to connect automatic sync with GitHub-backed cross-device use

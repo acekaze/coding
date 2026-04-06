@@ -15,6 +15,7 @@ This is the navigation entrypoint for the wiki.
 - [2026-04-06-instructional-design-workstream](./sources/2026-04-06-instructional-design-workstream.md): source page for the enterprise instructional design workspace
 - [2026-04-06-jeon-jongmok-context](./sources/2026-04-06-jeon-jongmok-context.md): source page for the long-form worldview context around Jeon Jong-mok
 - [2026-04-06-first-launch-wiki-routine](./sources/2026-04-06-first-launch-wiki-routine.md): source page for the decision to run the wiki loop at first launch instead of a fixed 09:00 schedule
+- [2026-04-06-automated-codex-wiki-sync](./sources/2026-04-06-automated-codex-wiki-sync.md): source page for the automatic host-machine sync pattern and shared-use rule
 
 ## Entities
 

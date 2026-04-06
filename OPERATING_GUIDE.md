@@ -74,12 +74,32 @@ For each active project, try to maintain at least:
 Add a `concept` page when the same idea appears in multiple projects.
 Add an `analysis` page when the answer will be reused later.
 
-## First-launch morning loop
+## Morning operating modes
+
+There are two supported ways to run the morning loop.
+
+### Automatic host mode
+
+Use one primary machine as the automation host.
+
+Recommended pattern:
+
+- Windows opens Codex at logon
+- Windows opens Codex again shortly before the morning sync window
+- the Codex `wiki-morning-loop` automation runs at 09:00
+- the automation updates the wiki, regenerates the manifest, and pushes safe wiki-only changes to `origin/main`
+
+Use [scripts/setup-codex-wiki-automation.ps1](/C:/코딩/llm-wiki-workspace/scripts/setup-codex-wiki-automation.ps1) on the host machine to configure this.
+
+Important:
+
+- only one machine should run this automation against the repository
+- other devices should pull from GitHub and use the shared viewer or make manual edits
+
+### Manual fallback mode
 
 Run this once when you first open Codex for the day, before deep work.
 Target length: 10-20 minutes on normal days.
-
-This is a startup routine, not a fixed-time automation.
 
 ### Step 1. Re-orient
 
@@ -200,6 +220,15 @@ For local viewing:
 ```text
 python -m http.server 8000
 ```
+
+## Shared-use model
+
+Use this split:
+
+- GitHub private repo: source of truth and cross-device sync
+- one automation host machine: daily automatic sync
+- other devices: pull, inspect, query, and manually improve
+- static host such as Vercel: shared browser view of the latest pushed state
 
 ## Practical success test
 

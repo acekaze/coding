@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06 22:14 대한민국 표준시",
+  "generated_at": "2026-04-06 22:28 대한민국 표준시",
   "entries": [
     {
       "path": "wiki/analyses/current-workstream-map-2026-04.md",
@@ -13,7 +13,7 @@
       "section": "analyses",
       "title": "internal-wiki-operations-loop",
       "heading": "Internal wiki operations loop",
-      "summary": "Use it as an internal control tower, not as a second copy of every project. When Codex is first opened each morning, re-orient on the wiki, scan the tracked project folders, ingest only meaningful changes, and leave contradictions visible."
+      "summary": "Use it as an internal control tower, not as a second copy of every project. Either run the loop when Codex is first opened each morning, or use one designated automation host to run the loop automatically and publish safe changes back to GitHub."
     },
     {
       "path": "wiki/analyses/README.md",
@@ -147,6 +147,13 @@
       "title": "2026-04-06-ai-education-proposals-workstream",
       "heading": "AI education proposals workstream",
       "summary": "A derived note about the `제안서` workspace, based on the integrated AI education proposal plus manager and practitioner approval-ready proposals."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-automated-codex-wiki-sync.md",
+      "section": "sources",
+      "title": "2026-04-06-automated-codex-wiki-sync",
+      "heading": "Automated Codex wiki sync",
+      "summary": "An internal operating decision for turning the wiki loop into a mostly automatic daily sync."
     },
     {
       "path": "wiki/sources/2026-04-06-first-launch-wiki-routine.md",
