@@ -36,3 +36,4 @@ This is the navigation entrypoint for the wiki.
 ## Analyses
 
 - [current-workstream-map-2026-04](./analyses/current-workstream-map-2026-04.md): synthesis of how the current five workstreams fit together as one portfolio map
+- [internal-wiki-operations-loop](./analyses/internal-wiki-operations-loop.md): practical answer for how to run this wiki as a daily internal operating layer

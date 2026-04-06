@@ -96,6 +96,22 @@ Periodically ask the LLM to audit the wiki for:
 
 You can use [prompts/lint-wiki.md](/C:/코딩/llm-wiki-workspace/prompts/lint-wiki.md) as a starter.
 
+## Operating rhythm
+
+If you want this wiki to stay useful, run it as a loop instead of as an occasional archive.
+
+- use [OPERATING_GUIDE.md](/C:/코딩/llm-wiki-workspace/OPERATING_GUIDE.md) as the main operating handbook
+- use [prompts/daily-morning-loop.md](/C:/코딩/llm-wiki-workspace/prompts/daily-morning-loop.md) for the daily scan and update loop
+- use [prompts/weekly-wiki-review.md](/C:/코딩/llm-wiki-workspace/prompts/weekly-wiki-review.md) for the deeper weekly cleanup
+
+The default tracked project set is:
+
+- `C:/코딩/공개과정`
+- `C:/코딩/청소년을 위한 말처방`
+- `C:/코딩/제안서`
+- `C:/코딩/교육설계`
+- `C:/코딩/전종목`
+
 ## Good first use cases
 
 - research topic wiki

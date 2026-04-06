@@ -19,3 +19,9 @@ Use this file as an append-only timeline.
 - created five linked source pages, five entity pages, four concept pages, and one synthesis analysis page
 - updated the overview and index so the wiki now maps the current Jeon Jong-mok-centered workstream ecosystem
 - preserved known uncertainty, including the current 2-day vs 3-day public-course planning drift
+
+## [2026-04-06] ingest | wiki operating loop
+
+- added an operating guide and morning/weekly prompt starters for using the wiki as an internal control tower
+- added raw source notes and an analysis page describing the internal wiki operations loop
+- updated the index so the usage guidance is discoverable from inside the wiki itself
