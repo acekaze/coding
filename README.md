@@ -139,5 +139,8 @@ Then open:
 http://localhost:8000
 ```
 
+This repo also includes a GitHub Pages workflow at `.github/workflows/deploy-pages.yml`.
+Once GitHub Pages is enabled for the repository, every push to `main` can refresh the hosted viewer.
+
 Start simple first.
 You do not need special tooling before the markdown structure becomes useful.
