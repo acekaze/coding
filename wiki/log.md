@@ -37,3 +37,9 @@ Use this file as an append-only timeline.
 - added scripts and prompt guidance for using one Windows machine as the automatic Codex sync host
 - documented the shared-use rule that only one device should auto-publish while other devices consume the pushed state
 - updated the operating guide and operations analysis to connect automatic sync with GitHub-backed cross-device use
+
+## [2026-04-06] ingest | codex host wake timer
+
+- added a wake-timer script and updated the host setup script to wake the PC at 08:50 and open Codex at 08:55
+- documented that this pattern targets sleep or hibernate wake-up, not guaranteed full power-on from complete shutdown
+- updated the operating guide and index so the morning host timing is explicit inside the wiki

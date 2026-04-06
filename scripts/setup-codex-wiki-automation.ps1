@@ -1,17 +1,20 @@
 param(
   [string]$AutomationId = 'wiki-morning-loop',
+  [string]$WakeTime = '08:50',
   [string]$LaunchTime = '08:55',
   [string]$CodexAppId = 'OpenAI.Codex_2p2nqsd0c76g0!App'
 )
 
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $openScript = Join-Path $PSScriptRoot 'open-codex-app.ps1'
+$wakeScript = Join-Path $PSScriptRoot 'wake-for-codex.ps1'
 $promptFile = Join-Path $repoRoot 'prompts\automated-wiki-sync.md'
 $codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USERPROFILE '.codex' }
 $automationToml = Join-Path $codexHome "automations\$AutomationId\automation.toml"
 $dbPath = Join-Path $codexHome 'sqlite\codex-dev.db'
 $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
 $launchCommand = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$openScript`" -CodexAppId `"$CodexAppId`""
+$wakeCommand = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$wakeScript`""
 $nowMs = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
 $workspaceRoot = Split-Path -Parent $repoRoot
 $automationWorkspaceRoot = $workspaceRoot
@@ -31,6 +34,10 @@ $cwdsJson = @(
 
 if (-not (Test-Path $openScript)) {
   throw "Missing launch script: $openScript"
+}
+
+if (-not (Test-Path $wakeScript)) {
+  throw "Missing wake script: $wakeScript"
 }
 
 if (-not (Test-Path $promptFile)) {
@@ -69,10 +76,32 @@ conn.commit()
 "@ | python -
 }
 
+$null = powercfg /SETACVALUEINDEX SCHEME_CURRENT SUB_SLEEP RTCWAKE 1
+$null = powercfg /SETDCVALUEINDEX SCHEME_CURRENT SUB_SLEEP RTCWAKE 1
+$null = powercfg /S SCHEME_CURRENT
+
 $null = schtasks /Create /F /TN "\Codex\Open Codex At Logon" /SC ONLOGON /TR $launchCommand /RU $user
+$null = schtasks /Create /F /TN "\Codex\Wake For Codex Wiki Loop" /SC DAILY /ST $WakeTime /TR $wakeCommand /RU $user
 $null = schtasks /Create /F /TN "\Codex\Open Codex Before Wiki Loop" /SC DAILY /ST $LaunchTime /TR $launchCommand /RU $user
+
+$taskUpdates = @(
+  @{ Name = 'Open Codex At Logon'; WakeToRun = $false },
+  @{ Name = 'Wake For Codex Wiki Loop'; WakeToRun = $true },
+  @{ Name = 'Open Codex Before Wiki Loop'; WakeToRun = $true }
+)
+
+foreach ($taskUpdate in $taskUpdates) {
+  $task = Get-ScheduledTask -TaskPath '\Codex\' -TaskName $taskUpdate.Name
+  $task.Settings.WakeToRun = $taskUpdate.WakeToRun
+  $task.Settings.StartWhenAvailable = $true
+  $task.Settings.ExecutionTimeLimit = 'PT1H'
+  $task.Settings.DisallowStartIfOnBatteries = $false
+  $task.Settings.StopIfGoingOnBatteries = $false
+  Set-ScheduledTask -InputObject $task | Out-Null
+}
 
 Write-Output "Activated Codex automation '$AutomationId'."
 Write-Output "Scheduled tasks created for $user."
+Write-Output "Wake time: $WakeTime"
 Write-Output "Daily launch time: $LaunchTime"
 Write-Output "Automation workspaces: $cwdsJson"

@@ -172,7 +172,7 @@ GitHub Pages can be added back later if the repository becomes eligible for Page
 The intended operating pattern is:
 
 1. one Windows machine acts as the automatic sync host
-2. that machine launches Codex on logon and before the morning sync window
+2. that machine wakes at 08:50, then launches Codex at 08:55 before the morning sync window
 3. the Codex automation updates the wiki and pushes safe wiki-only changes to `origin/main`
 4. other devices pull from GitHub and use the same wiki state
 5. a static host such as Vercel can publish the current `main` branch as a shared browser view
@@ -185,6 +185,9 @@ powershell -ExecutionPolicy Bypass -File scripts/setup-codex-wiki-automation.ps1
 
 Only one device should run the automatic sync for this repository.
 Other devices should remain consumers or manual editors so they do not race each other.
+
+The wake timer pattern is designed for sleep or hibernate recovery.
+If you need power-on from a full shutdown, that depends on BIOS RTC power-on settings.
 
 Start simple first.
 You do not need special tooling before the markdown structure becomes useful.

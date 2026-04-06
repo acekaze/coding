@@ -13,6 +13,7 @@ related:
   - wiki/analyses/current-workstream-map-2026-04.md
   - wiki/sources/2026-04-06-first-launch-wiki-routine.md
   - wiki/sources/2026-04-06-automated-codex-wiki-sync.md
+  - wiki/sources/2026-04-06-codex-host-wake-timer.md
 ---
 
 # Internal wiki operations loop
@@ -39,7 +40,7 @@ Either run the loop when Codex is first opened each morning, or use one designat
 ### Automatic host mode
 
 - use one primary machine as the only automation host
-- launch Codex automatically at logon and before the morning sync window
+- wake the host at 08:50, then launch Codex automatically at 08:55 before the morning sync window
 - keep the morning automation active so it can update and publish safe wiki changes
 - let other devices consume the pushed state instead of competing to auto-publish
 

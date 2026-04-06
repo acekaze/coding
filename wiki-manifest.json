@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06 22:28 대한민국 표준시",
+  "generated_at": "2026-04-06 22:45 대한민국 표준시",
   "entries": [
     {
       "path": "wiki/analyses/current-workstream-map-2026-04.md",
@@ -154,6 +154,13 @@
       "title": "2026-04-06-automated-codex-wiki-sync",
       "heading": "Automated Codex wiki sync",
       "summary": "An internal operating decision for turning the wiki loop into a mostly automatic daily sync."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-codex-host-wake-timer.md",
+      "section": "sources",
+      "title": "2026-04-06-codex-host-wake-timer",
+      "heading": "Codex host wake timer",
+      "summary": "An internal operating decision for waking the primary Codex host before the morning wiki sync."
     },
     {
       "path": "wiki/sources/2026-04-06-first-launch-wiki-routine.md",

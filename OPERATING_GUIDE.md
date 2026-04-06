@@ -84,8 +84,9 @@ Use one primary machine as the automation host.
 
 Recommended pattern:
 
+- Windows wakes the PC at 08:50
 - Windows opens Codex at logon
-- Windows opens Codex again shortly before the morning sync window
+- Windows opens Codex again at 08:55 shortly before the morning sync window
 - the Codex `wiki-morning-loop` automation runs at 09:00
 - the automation updates the wiki, regenerates the manifest, and pushes safe wiki-only changes to `origin/main`
 
@@ -95,6 +96,7 @@ Important:
 
 - only one machine should run this automation against the repository
 - other devices should pull from GitHub and use the shared viewer or make manual edits
+- this wake pattern targets sleep or hibernate, not guaranteed full power-on from complete shutdown
 
 ### Manual fallback mode
 
