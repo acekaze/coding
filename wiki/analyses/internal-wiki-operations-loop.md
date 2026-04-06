@@ -5,11 +5,13 @@ created: 2026-04-06
 updated: 2026-04-06
 source_files:
   - raw/sources/2026-04-06-wiki-operations-model-notes.md
+  - raw/sources/2026-04-06-first-launch-wiki-routine-notes.md
 related:
   - wiki/overview.md
   - wiki/index.md
   - wiki/log.md
   - wiki/analyses/current-workstream-map-2026-04.md
+  - wiki/sources/2026-04-06-first-launch-wiki-routine.md
 ---
 
 # Internal wiki operations loop
@@ -21,11 +23,11 @@ How should this wiki actually be used as an internal tool, day to day?
 ## Short answer
 
 Use it as an internal control tower, not as a second copy of every project.
-Each morning, re-orient on the wiki, scan the tracked project folders, ingest only meaningful changes, and leave contradictions visible.
+When Codex is first opened each morning, re-orient on the wiki, scan the tracked project folders, ingest only meaningful changes, and leave contradictions visible.
 
 ## Recommended loop
 
-### Morning
+### First launch each morning
 
 - read `wiki/index.md`
 - skim `wiki/overview.md`

@@ -1,8 +1,11 @@
-# Daily Morning Loop Prompt
+# First-Launch Morning Loop Prompt
 
 Read `AGENTS.md` and `OPERATING_GUIDE.md` first.
 
-Then run the morning loop for this workspace.
+Then run the first-launch morning loop for this workspace.
+
+Use this when Codex is first opened for the day.
+Do not treat it as a strict 09:00 scheduled job.
 
 Tracked projects:
 

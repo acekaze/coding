@@ -31,7 +31,7 @@ The current default tracked set is:
 - `C:/코딩/교육설계`
 - `C:/코딩/전종목`
 
-These should be treated as the first morning scan set unless a more urgent project is added.
+These should be treated as the default first-launch scan set unless a more urgent project is added.
 
 ## Layer rule
 
@@ -74,10 +74,12 @@ For each active project, try to maintain at least:
 Add a `concept` page when the same idea appears in multiple projects.
 Add an `analysis` page when the answer will be reused later.
 
-## Daily morning loop
+## First-launch morning loop
 
-Run this once each morning before deep work.
+Run this once when you first open Codex for the day, before deep work.
 Target length: 10-20 minutes on normal days.
+
+This is a startup routine, not a fixed-time automation.
 
 ### Step 1. Re-orient
 
@@ -116,7 +118,7 @@ For each meaningful change:
 
 ### Step 4. Leave the map cleaner than you found it
 
-Before finishing the morning loop:
+Before finishing the first-launch loop:
 
 - fix obvious stale claims
 - add missing links if they are clear

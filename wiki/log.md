@@ -25,3 +25,9 @@ Use this file as an append-only timeline.
 - added an operating guide and morning/weekly prompt starters for using the wiki as an internal control tower
 - added raw source notes and an analysis page describing the internal wiki operations loop
 - updated the index so the usage guidance is discoverable from inside the wiki itself
+
+## [2026-04-06] ingest | first-launch wiki routine
+
+- added a new raw note and source page capturing the decision to run the wiki loop at first launch instead of a fixed 09:00 schedule
+- updated the operating guide, prompt starter, and operations analysis to reflect the first-launch ritual
+- removed the GitHub Pages workflow because the current private repository state is not eligible for Pages hosting

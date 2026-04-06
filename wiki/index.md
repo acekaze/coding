@@ -14,6 +14,7 @@ This is the navigation entrypoint for the wiki.
 - [2026-04-06-ai-education-proposals-workstream](./sources/2026-04-06-ai-education-proposals-workstream.md): source page for the AI education proposal portfolio
 - [2026-04-06-instructional-design-workstream](./sources/2026-04-06-instructional-design-workstream.md): source page for the enterprise instructional design workspace
 - [2026-04-06-jeon-jongmok-context](./sources/2026-04-06-jeon-jongmok-context.md): source page for the long-form worldview context around Jeon Jong-mok
+- [2026-04-06-first-launch-wiki-routine](./sources/2026-04-06-first-launch-wiki-routine.md): source page for the decision to run the wiki loop at first launch instead of a fixed 09:00 schedule
 
 ## Entities
 
@@ -36,4 +37,4 @@ This is the navigation entrypoint for the wiki.
 ## Analyses
 
 - [current-workstream-map-2026-04](./analyses/current-workstream-map-2026-04.md): synthesis of how the current five workstreams fit together as one portfolio map
-- [internal-wiki-operations-loop](./analyses/internal-wiki-operations-loop.md): practical answer for how to run this wiki as a daily internal operating layer
+- [internal-wiki-operations-loop](./analyses/internal-wiki-operations-loop.md): practical answer for how to run this wiki as a first-launch internal operating layer
