@@ -110,5 +110,34 @@ You can use [prompts/lint-wiki.md](/C:/코딩/llm-wiki-workspace/prompts/lint-wi
 - Git for history and branching
 - local markdown search later, if the wiki grows large
 
+## Web viewer
+
+This workspace also includes a lightweight static wiki viewer:
+
+- `index.html`
+- `styles.css`
+- `app.js`
+- `wiki-manifest.json`
+
+The viewer reads the markdown in `wiki/` directly and uses `wiki-manifest.json` for navigation.
+
+Refresh the manifest after adding or renaming wiki pages:
+
+```text
+python scripts/generate_wiki_manifest.py
+```
+
+Preview locally from the workspace root:
+
+```text
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000
+```
+
 Start simple first.
 You do not need special tooling before the markdown structure becomes useful.

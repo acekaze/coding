@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-04-06 21:48 대한민국 표준시",
+  "entries": [
+    {
+      "path": "wiki/analyses/current-workstream-map-2026-04.md",
+      "section": "analyses",
+      "title": "current-workstream-map-2026-04",
+      "heading": "Current workstream map 2026-04",
+      "summary": ""
+    },
+    {
+      "path": "wiki/analyses/README.md",
+      "section": "analyses",
+      "title": "README",
+      "heading": "Analysis Pages",
+      "summary": "Use this folder for reusable answers that emerged from questions."
+    },
+    {
+      "path": "wiki/concepts/dual-track-ai-education-manager-vs-practitioner.md",
+      "section": "concepts",
+      "title": "dual-track-ai-education-manager-vs-practitioner",
+      "heading": "Dual-track AI education manager vs practitioner",
+      "summary": "The proposal portfolio argues that AI education should be split by organizational leverage point, with managers and practitioners learning different operating behaviors."
+    },
+    {
+      "path": "wiki/concepts/education-product-redesign-through-practice.md",
+      "section": "concepts",
+      "title": "education-product-redesign-through-practice",
+      "heading": "Education product redesign through practice",
+      "summary": "Several current workstreams treat learning not as abstract content transfer but as the redesign of a real working artifact through practice, feedback, and revision."
+    },
+    {
+      "path": "wiki/concepts/interpretation-centered-education-design.md",
+      "section": "concepts",
+      "title": "interpretation-centered-education-design",
+      "heading": "Interpretation-centered education design",
+      "summary": "Across the current corpus, education is framed less as technique transfer and more as the interpretation of experience into language, structure, action, and recovery."
+    },
+    {
+      "path": "wiki/concepts/persistent-wiki-vs-rag.md",
+      "section": "concepts",
+      "title": "persistent-wiki-vs-rag",
+      "heading": "Persistent wiki vs RAG",
+      "summary": "The key distinction is whether knowledge is repeatedly reconstructed from raw documents at query time or incrementally compiled into a maintained wiki over time."
+    },
+    {
+      "path": "wiki/concepts/README.md",
+      "section": "concepts",
+      "title": "README",
+      "heading": "Concept Pages",
+      "summary": "Use this folder for reusable ideas, frameworks, methods, themes, tensions, and comparisons."
+    },
+    {
+      "path": "wiki/concepts/reusable-education-operations-assets.md",
+      "section": "concepts",
+      "title": "reusable-education-operations-assets",
+      "heading": "Reusable education operations assets",
+      "summary": "The current corpus repeatedly treats operations output as reusable educational infrastructure rather than as disposable delivery residue."
+    },
+    {
+      "path": "wiki/concepts/wiki-ingest-query-lint-loop.md",
+      "section": "concepts",
+      "title": "wiki-ingest-query-lint-loop",
+      "heading": "Wiki ingest query lint loop",
+      "summary": "The workspace should revolve around three recurring operations: ingest new sources, query the wiki, and lint the structure for quality."
+    },
+    {
+      "path": "wiki/entities/ai-education-proposal-portfolio.md",
+      "section": "entities",
+      "title": "ai-education-proposal-portfolio",
+      "heading": "AI education proposal portfolio",
+      "summary": "The proposal portfolio is a B2B packaging system that turns AI education into role-specific, purchase-ready programs backed by operational artifacts."
+    },
+    {
+      "path": "wiki/entities/andrej-karpathy.md",
+      "section": "entities",
+      "title": "andrej-karpathy",
+      "heading": "Andrej Karpathy",
+      "summary": "Andrej Karpathy is the source author whose gist inspired this wiki workspace pattern."
+    },
+    {
+      "path": "wiki/entities/instructional-design-workbench.md",
+      "section": "entities",
+      "title": "instructional-design-workbench",
+      "heading": "Instructional design workbench",
+      "summary": "The instructional design workbench is a delivery-oriented repository where courses are turned into runnable structures, facilitator guides, slide systems, and participant artifacts."
+    },
+    {
+      "path": "wiki/entities/jeon-jongmok.md",
+      "section": "entities",
+      "title": "jeon-jongmok",
+      "heading": "Jeon Jong-mok",
+      "summary": "Jeon Jong-mok is the central interpreting entity in the current corpus: an educator whose work spans B2B execution and B2C meaning-making through one shared worldview."
+    },
+    {
+      "path": "wiki/entities/public-course.md",
+      "section": "entities",
+      "title": "public-course",
+      "heading": "Public course",
+      "summary": "The public course is a premium learning-product workstream for working instructors, centered on redesigning a real lecture through practice, feedback, and assetization."
+    },
+    {
+      "path": "wiki/entities/README.md",
+      "section": "entities",
+      "title": "README",
+      "heading": "Entity Pages",
+      "summary": "Use this folder for named entities such as people, organizations, products, tools, books, or places."
+    },
+    {
+      "path": "wiki/entities/youth-speech-prescription.md",
+      "section": "entities",
+      "title": "youth-speech-prescription",
+      "heading": "Youth speech prescription",
+      "summary": "This workstream is a youth adaptation of `어른을 위한 말처방`, guided by adolescent-development research and editorial care around rejection, tone, and emotional safety."
+    },
+    {
+      "path": "wiki/index.md",
+      "section": "core",
+      "title": "index",
+      "heading": "Wiki Index",
+      "summary": "This is the navigation entrypoint for the wiki."
+    },
+    {
+      "path": "wiki/log.md",
+      "section": "core",
+      "title": "log",
+      "heading": "Wiki Log",
+      "summary": "Use this file as an append-only timeline."
+    },
+    {
+      "path": "wiki/overview.md",
+      "section": "core",
+      "title": "overview",
+      "heading": "Overview",
+      "summary": "This page explains what the wiki is currently about."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-ai-education-proposals-workstream.md",
+      "section": "sources",
+      "title": "2026-04-06-ai-education-proposals-workstream",
+      "heading": "AI education proposals workstream",
+      "summary": "A derived note about the `제안서` workspace, based on the integrated AI education proposal plus manager and practitioner approval-ready proposals."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-instructional-design-workstream.md",
+      "section": "sources",
+      "title": "2026-04-06-instructional-design-workstream",
+      "heading": "Instructional design workstream",
+      "summary": "A derived note about the `교육설계` workspace, based on two operating guides for enterprise courses on planning and leadership storytelling."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-jeon-jongmok-context.md",
+      "section": "sources",
+      "title": "2026-04-06-jeon-jongmok-context",
+      "heading": "Jeon Jong-mok context",
+      "summary": "A derived note about the `전종목` workspace, based on the long-form context file that defines the worldview behind the broader corpus."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-karpathy-llm-wiki.md",
+      "section": "sources",
+      "title": "2026-04-06-karpathy-llm-wiki",
+      "heading": "Karpathy LLM Wiki gist",
+      "summary": "A note derived from Andrej Karpathy's 2026 gist describing an LLM-maintained wiki as a persistent knowledge layer."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-public-course-workstream.md",
+      "section": "sources",
+      "title": "2026-04-06-public-course-workstream",
+      "heading": "Public course workstream",
+      "summary": "A derived note about the `공개과정` workspace, based on the currently read planning, positioning, and operations documents for the premium public course."
+    },
+    {
+      "path": "wiki/sources/2026-04-06-youth-speech-prescription-workstream.md",
+      "section": "sources",
+      "title": "2026-04-06-youth-speech-prescription-workstream",
+      "heading": "Youth speech prescription workstream",
+      "summary": "A derived note about the `청소년을 위한 말처방` workspace, based on the current research memo, deeper report, and the presence of the original adult book PDF."
+    },
+    {
+      "path": "wiki/sources/README.md",
+      "section": "sources",
+      "title": "README",
+      "heading": "Source Pages",
+      "summary": "Each ingested raw source should usually get a source page here."
+    }
+  ]
+}

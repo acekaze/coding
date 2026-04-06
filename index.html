@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LLM Wiki Workspace</title>
+    <meta
+      name="description"
+      content="A lightweight web reader for the markdown wiki in llm-wiki-workspace."
+    />
+    <link
+      rel="icon"
+      href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%238e6238"/><path d="M18 16h28v6H24v8h18v6H24v12h22v6H18z" fill="%23f8f1e8"/></svg>'
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LLM Wiki Workspace</p>
+          <h1>지금 쌓인 위키를 브라우저에서 바로 읽는 뷰어</h1>
+          <p class="hero-text">
+            wiki 폴더의 마크다운을 그대로 읽고, index.md를 중심으로 탐색하는
+            가벼운 정적 페이지입니다.
+          </p>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-block">
+            <span class="meta-label">Pages</span>
+            <strong id="page-count">0</strong>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label">Sections</span>
+            <strong id="section-count">0</strong>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label">Updated</span>
+            <strong id="manifest-date">-</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="sidebar">
+          <div class="sidebar-top">
+            <label class="search-label" for="search-input">Search</label>
+            <input
+              id="search-input"
+              class="search-input"
+              type="search"
+              placeholder="title, summary, section"
+              autocomplete="off"
+            />
+          </div>
+          <nav id="sidebar-nav" class="sidebar-nav" aria-label="Wiki navigation"></nav>
+        </aside>
+
+        <section class="reader">
+          <div class="reader-toolbar">
+            <div class="reader-meta" id="reader-meta"></div>
+            <a id="source-link" class="source-link" href="./wiki/index.md" target="_blank" rel="noreferrer">
+              Open raw markdown
+            </a>
+          </div>
+          <article class="document">
+            <div id="document-body" class="document-body">
+              <p class="empty-state">문서를 불러오는 중입니다.</p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

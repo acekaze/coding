@@ -2,16 +2,31 @@
 
 This page explains what the wiki is currently about.
 
-At the beginning, keep this lightweight.
-As the wiki grows, evolve this page into a high-level map of the major themes, entities, and open questions.
+The wiki started with the Karpathy-style operating pattern, and now also maps a growing set of local workstreams centered on education design, proposals, publishing adaptation, and the Jeon Jong-mok portfolio worldview.
 
 ## Current scope
 
 - seed topic: a Karpathy-style LLM-maintained wiki pattern
-- focus: how to turn raw source material into a persistent, interlinked markdown knowledge base
+- active domain: current workstreams in `C:/코딩` around 공개과정, 청소년을 위한 말처방, 제안서, 교육설계, 전종목
+- focus: how those workstreams connect as one compounding knowledge system
+
+## Major threads
+
+- [jeon-jongmok](./entities/jeon-jongmok.md): worldview anchor connecting B2B and B2C expressions
+- [public-course](./entities/public-course.md): public premium product for working instructors
+- [youth-speech-prescription](./entities/youth-speech-prescription.md): youth adaptation of an adult language-and-relationship framework
+- [ai-education-proposal-portfolio](./entities/ai-education-proposal-portfolio.md): B2B packaging for role-specific AI education
+- [instructional-design-workbench](./entities/instructional-design-workbench.md): delivery engine of guides, decks, and participant artifacts
+
+## Recurring concepts
+
+- [interpretation-centered-education-design](./concepts/interpretation-centered-education-design.md)
+- [education-product-redesign-through-practice](./concepts/education-product-redesign-through-practice.md)
+- [reusable-education-operations-assets](./concepts/reusable-education-operations-assets.md)
+- [dual-track-ai-education-manager-vs-practitioner](./concepts/dual-track-ai-education-manager-vs-practitioner.md)
 
 ## Open questions
 
-- what domain should this wiki cover first
-- what source types will dominate the corpus
-- whether a dedicated analyses workflow should be emphasized early
+- the public course currently has planning drift in the source set on whether the flagship format is 2 days or 3 days
+- the youth adaptation is well supported by research notes but not yet by ingested rewritten chapters
+- many workstreams have rich local artifacts, but only a small portion of stable public URLs are currently captured in the wiki
