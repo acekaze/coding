@@ -104,6 +104,7 @@ If you want this wiki to stay useful, run it as a loop instead of as an occasion
 - use [prompts/daily-morning-loop.md](/C:/코딩/llm-wiki-workspace/prompts/daily-morning-loop.md) for the first-launch morning scan and update loop
 - use [prompts/automated-wiki-sync.md](/C:/코딩/llm-wiki-workspace/prompts/automated-wiki-sync.md) for the automatic host-mode sync logic
 - use [prompts/request-source-handoff.md](/C:/코딩/llm-wiki-workspace/prompts/request-source-handoff.md) when another device needs original text from a local-only tracked project
+- use [prompts/source-handoff-request-template.md](/C:/코딩/llm-wiki-workspace/prompts/source-handoff-request-template.md) when you want a copy-paste request message for another device
 - use [prompts/weekly-wiki-review.md](/C:/코딩/llm-wiki-workspace/prompts/weekly-wiki-review.md) for the deeper weekly cleanup
 
 The default tracked project set is:

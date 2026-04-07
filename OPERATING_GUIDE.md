@@ -279,6 +279,7 @@ Recommended flow:
 6. commit and push so the handoff becomes reusable on every device
 
 Use [prompts/request-source-handoff.md](/C:/코딩/llm-wiki-workspace/prompts/request-source-handoff.md) as the standard starter.
+For a short copy-paste message from another device, use [prompts/source-handoff-request-template.md](/C:/코딩/llm-wiki-workspace/prompts/source-handoff-request-template.md).
 
 ## Practical success test
 
