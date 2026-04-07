@@ -43,3 +43,9 @@ Use this file as an append-only timeline.
 - added a wake-timer script and updated the host setup script to wake the PC at 08:50 and open Codex at 08:55
 - documented that this pattern targets sleep or hibernate wake-up, not guaranteed full power-on from complete shutdown
 - updated the operating guide and index so the morning host timing is explicit inside the wiki
+
+## [2026-04-07] ingest | windows-led codex refresh
+
+- captured the first morning run result where wake and launch succeeded but the Codex automation did not fire
+- changed the 08:55 Windows task to restart Codex if it is already open so the 09:00 automation gets a fresh app state
+- updated the operating guide, index, and operations analysis to reflect the refreshed Windows-led morning flow

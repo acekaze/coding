@@ -13,24 +13,30 @@ $codexHome = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USER
 $automationToml = Join-Path $codexHome "automations\$AutomationId\automation.toml"
 $dbPath = Join-Path $codexHome 'sqlite\codex-dev.db'
 $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-$launchCommand = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$openScript`" -CodexAppId `"$CodexAppId`""
-$wakeCommand = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$wakeScript`""
 $nowMs = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
 $workspaceRoot = Split-Path -Parent $repoRoot
 $automationWorkspaceRoot = $workspaceRoot
 $automationRepoRoot = $repoRoot
 $asciiWorkspaceAlias = 'C:\coding'
 $asciiRepoAlias = Join-Path $asciiWorkspaceAlias (Split-Path -Leaf $repoRoot)
+$schedulerScriptRoot = $PSScriptRoot
 
 if ((Test-Path $asciiWorkspaceAlias) -and (Test-Path $asciiRepoAlias)) {
   $automationWorkspaceRoot = $asciiWorkspaceAlias
   $automationRepoRoot = $asciiRepoAlias
+  $schedulerScriptRoot = Join-Path $asciiRepoAlias 'scripts'
 }
 
 $cwdsJson = @(
   ($automationWorkspaceRoot -replace '\\', '/'),
   ($automationRepoRoot -replace '\\', '/')
 ) | ConvertTo-Json -Compress
+
+$schedulerOpenScript = Join-Path $schedulerScriptRoot 'open-codex-app.ps1'
+$schedulerWakeScript = Join-Path $schedulerScriptRoot 'wake-for-codex.ps1'
+$launchCommand = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$schedulerOpenScript`" -CodexAppId `"$CodexAppId`""
+$refreshLaunchCommand = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$schedulerOpenScript`" -CodexAppId `"$CodexAppId`" -RestartIfRunning -RestartDelaySeconds 5"
+$wakeCommand = "powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$schedulerWakeScript`""
 
 if (-not (Test-Path $openScript)) {
   throw "Missing launch script: $openScript"
@@ -82,7 +88,7 @@ $null = powercfg /S SCHEME_CURRENT
 
 $null = schtasks /Create /F /TN "\Codex\Open Codex At Logon" /SC ONLOGON /TR $launchCommand /RU $user
 $null = schtasks /Create /F /TN "\Codex\Wake For Codex Wiki Loop" /SC DAILY /ST $WakeTime /TR $wakeCommand /RU $user
-$null = schtasks /Create /F /TN "\Codex\Open Codex Before Wiki Loop" /SC DAILY /ST $LaunchTime /TR $launchCommand /RU $user
+$null = schtasks /Create /F /TN "\Codex\Open Codex Before Wiki Loop" /SC DAILY /ST $LaunchTime /TR $refreshLaunchCommand /RU $user
 
 $taskUpdates = @(
   @{ Name = 'Open Codex At Logon'; WakeToRun = $false },

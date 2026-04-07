@@ -17,6 +17,7 @@ This is the navigation entrypoint for the wiki.
 - [2026-04-06-first-launch-wiki-routine](./sources/2026-04-06-first-launch-wiki-routine.md): source page for the decision to run the wiki loop at first launch instead of a fixed 09:00 schedule
 - [2026-04-06-automated-codex-wiki-sync](./sources/2026-04-06-automated-codex-wiki-sync.md): source page for the automatic host-machine sync pattern and shared-use rule
 - [2026-04-06-codex-host-wake-timer](./sources/2026-04-06-codex-host-wake-timer.md): source page for waking the host at 08:50 before the 09:00 wiki sync
+- [2026-04-07-windows-led-codex-refresh](./sources/2026-04-07-windows-led-codex-refresh.md): source page for restarting Codex at 08:55 so the automation window starts from a fresh app state
 
 ## Entities
 

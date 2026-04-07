@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-06 22:45 대한민국 표준시",
+  "generated_at": "2026-04-07 10:52 대한민국 표준시",
   "entries": [
     {
       "path": "wiki/analyses/current-workstream-map-2026-04.md",
@@ -203,6 +203,13 @@
       "title": "2026-04-06-youth-speech-prescription-workstream",
       "heading": "Youth speech prescription workstream",
       "summary": "A derived note about the `청소년을 위한 말처방` workspace, based on the current research memo, deeper report, and the presence of the original adult book PDF."
+    },
+    {
+      "path": "wiki/sources/2026-04-07-windows-led-codex-refresh.md",
+      "section": "sources",
+      "title": "2026-04-07-windows-led-codex-refresh",
+      "heading": "Windows-led Codex refresh",
+      "summary": "An internal operating decision about making the 08:55 Windows task refresh Codex instead of only opening it."
     },
     {
       "path": "wiki/sources/README.md",
