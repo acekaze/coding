@@ -9,6 +9,7 @@ source_files:
 related:
   - wiki/sources/2026-04-06-public-course-workstream.md
   - wiki/sources/2026-04-07-public-course-public-launch.md
+  - wiki/sources/2026-04-07-public-course-pricing-application-handoff.md
   - wiki/entities/jeon-jongmok.md
   - wiki/concepts/education-product-redesign-through-practice.md
   - wiki/concepts/reusable-education-operations-assets.md
@@ -46,6 +47,7 @@ It is one of the clearest portfolio expressions where offer design, learning phi
 - concept: [reusable-education-operations-assets](../concepts/reusable-education-operations-assets.md)
 - source page: [2026-04-06-public-course-workstream](../sources/2026-04-06-public-course-workstream.md)
 - source page: [2026-04-07-public-course-public-launch](../sources/2026-04-07-public-course-public-launch.md)
+- source page: [2026-04-07-public-course-pricing-application-handoff](../sources/2026-04-07-public-course-pricing-application-handoff.md)
 
 ## Source basis
 

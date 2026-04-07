@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-07 12:16 대한민국 표준시",
+  "generated_at": "2026-04-07 22:47 대한민국 표준시",
   "entries": [
     {
       "path": "wiki/analyses/cross-device-request-queue-pattern.md",
@@ -231,6 +231,13 @@
       "title": "2026-04-07-file-based-request-queue",
       "heading": "File-based request queue",
       "summary": "A derived note describing the decision to use markdown request files inside the repository as the main cross-device coordination layer."
+    },
+    {
+      "path": "wiki/sources/2026-04-07-public-course-pricing-application-handoff.md",
+      "section": "sources",
+      "title": "2026-04-07-public-course-pricing-application-handoff",
+      "heading": "Public course pricing and application handoff",
+      "summary": "A requested source handoff capturing the exact public wording for the 공개과정 date, price, and application link from the current landing page."
     },
     {
       "path": "wiki/sources/2026-04-07-public-course-public-launch.md",

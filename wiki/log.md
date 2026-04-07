@@ -80,3 +80,9 @@ Use this file as an append-only timeline.
 - added a repository-native request queue under `requests/` with `open`, `in-progress`, and `done` stages
 - added request templates and a queue-processing prompt so PCs and Macs can leave durable asks in the repo
 - updated the operating guide and wiki analysis pages so cross-device coordination no longer depends only on chat memory
+
+## [2026-04-07] request | sample public-course pricing handoff
+
+- completed a sample request-queue item for the 공개과정 public pricing and application wording
+- added a done-state request file, a raw excerpt-pack handoff note, and a linked wiki source page
+- used the sample to prove that a cross-device ask can become a reusable repository artifact instead of a chat-only answer
