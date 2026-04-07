@@ -62,3 +62,9 @@ Use this file as an append-only timeline.
 - created a new Vercel preview deployment for shared browser access
 - added GitHub clone and local-viewer steps to the README and operating guide for non-host devices
 - kept the automation rule explicit that only one host machine should run the morning auto-sync
+
+## [2026-04-07] access | source-basis portability policy
+
+- added a tracked-project access registry showing which source projects are local-only, local git, or GitHub-backed
+- added a reusable analysis page explaining how to interpret `Original workspace basis` safely on other devices
+- kept the rule explicit that `raw/sources/` is the portable minimum evidence layer when source folders are not shared

@@ -1,6 +1,13 @@
 {
-  "generated_at": "2026-04-07 11:09 대한민국 표준시",
+  "generated_at": "2026-04-07 11:25 대한민국 표준시",
   "entries": [
+    {
+      "path": "wiki/analyses/cross-device-source-basis-policy.md",
+      "section": "analyses",
+      "title": "cross-device-source-basis-policy",
+      "heading": "Cross-device source-basis policy",
+      "summary": "Treat `raw/sources/` and the wiki pages themselves as the portable minimum evidence layer. Treat `Original workspace basis` as a provenance pointer that may or may not be directly openable on the current machine."
+    },
     {
       "path": "wiki/analyses/current-workstream-map-2026-04.md",
       "section": "analyses",
@@ -217,6 +224,13 @@
       "title": "2026-04-07-samsung-jobcrafting-proposal",
       "heading": "Samsung jobcrafting proposal",
       "summary": "A derived note about a Samsung-targeted REFRAME jobcrafting proposal in `제안서`, based on the written proposal drafts and the generated slide-deck builder."
+    },
+    {
+      "path": "wiki/sources/2026-04-07-tracked-project-access-registry.md",
+      "section": "sources",
+      "title": "2026-04-07-tracked-project-access-registry",
+      "heading": "Tracked project access registry",
+      "summary": "A derived note about how the currently tracked source projects are accessible across devices, based on a local survey of git state and remotes."
     },
     {
       "path": "wiki/sources/2026-04-07-windows-led-codex-refresh.md",

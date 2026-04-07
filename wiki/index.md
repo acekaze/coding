@@ -20,6 +20,7 @@ This is the navigation entrypoint for the wiki.
 - [2026-04-06-automated-codex-wiki-sync](./sources/2026-04-06-automated-codex-wiki-sync.md): source page for the automatic host-machine sync pattern and shared-use rule
 - [2026-04-06-codex-host-wake-timer](./sources/2026-04-06-codex-host-wake-timer.md): source page for waking the host at 08:50 before the 09:00 wiki sync
 - [2026-04-07-windows-led-codex-refresh](./sources/2026-04-07-windows-led-codex-refresh.md): source page for restarting Codex at 08:55 so the automation window starts from a fresh app state
+- [2026-04-07-tracked-project-access-registry](./sources/2026-04-07-tracked-project-access-registry.md): source page for which tracked projects are actually portable across devices today
 
 ## Entities
 
@@ -43,3 +44,4 @@ This is the navigation entrypoint for the wiki.
 
 - [current-workstream-map-2026-04](./analyses/current-workstream-map-2026-04.md): synthesis of how the current five workstreams fit together as one portfolio map
 - [internal-wiki-operations-loop](./analyses/internal-wiki-operations-loop.md): practical answer for how to run this wiki as a first-launch internal operating layer
+- [cross-device-source-basis-policy](./analyses/cross-device-source-basis-policy.md): how to read `Original workspace basis` safely on other devices
