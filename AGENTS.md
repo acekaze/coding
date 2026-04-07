@@ -68,6 +68,24 @@ Rules:
 - use this file as the source of truth for page conventions and workflows
 - if the workflow needs improvement, update this schema deliberately
 
+## Collaboration queue
+
+Location:
+
+- `requests/open/`
+- `requests/in-progress/`
+- `requests/done/`
+- `requests/templates/`
+
+Rules:
+
+- treat `requests/` as the durable coordination layer across devices
+- create new asks in `requests/open/`
+- move active asks to `requests/in-progress/`
+- move completed asks to `requests/done/`
+- when closing a request, record the result paths or commit hash in the request file
+- do not use `requests/` as a scratchpad for thoughts that do not need to survive
+
 ## Page taxonomy
 
 Use these folders consistently.

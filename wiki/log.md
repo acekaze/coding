@@ -74,3 +74,9 @@ Use this file as an append-only timeline.
 - added a standard workflow for answering cross-device requests for original text from local-only tracked projects
 - added a prompt starter and linked source/analysis pages so source handoffs become reusable repository artifacts
 - made the rule explicit that requested source text should be written into `raw/sources/` instead of being left only in chat
+
+## [2026-04-07] access | file-based request queue
+
+- added a repository-native request queue under `requests/` with `open`, `in-progress`, and `done` stages
+- added request templates and a queue-processing prompt so PCs and Macs can leave durable asks in the repo
+- updated the operating guide and wiki analysis pages so cross-device coordination no longer depends only on chat memory

@@ -1,6 +1,13 @@
 {
-  "generated_at": "2026-04-07 11:33 대한민국 표준시",
+  "generated_at": "2026-04-07 12:16 대한민국 표준시",
   "entries": [
+    {
+      "path": "wiki/analyses/cross-device-request-queue-pattern.md",
+      "section": "analyses",
+      "title": "cross-device-request-queue-pattern",
+      "heading": "Cross-device request queue pattern",
+      "summary": "Use chat for the interface, but use repo files for the queue. Requests should be markdown files committed into `requests/`."
+    },
     {
       "path": "wiki/analyses/cross-device-source-basis-policy.md",
       "section": "analyses",
@@ -217,6 +224,13 @@
       "title": "2026-04-06-youth-speech-prescription-workstream",
       "heading": "Youth speech prescription workstream",
       "summary": "A derived note about the `청소년을 위한 말처방` workspace, based on the current research memo, deeper report, and the presence of the original adult book PDF."
+    },
+    {
+      "path": "wiki/sources/2026-04-07-file-based-request-queue.md",
+      "section": "sources",
+      "title": "2026-04-07-file-based-request-queue",
+      "heading": "File-based request queue",
+      "summary": "A derived note describing the decision to use markdown request files inside the repository as the main cross-device coordination layer."
     },
     {
       "path": "wiki/sources/2026-04-07-public-course-public-launch.md",

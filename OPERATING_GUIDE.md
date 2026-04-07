@@ -232,6 +232,7 @@ Use this split:
 - one automation host machine: daily automatic sync
 - other devices: pull, inspect, query, and manually improve
 - static host such as Vercel: shared browser view of the latest pushed state
+- `requests/`: shared request queue for cross-device asks that should survive beyond chat
 
 ## Other-device quick start
 
@@ -264,6 +265,7 @@ Use this rule:
 - other devices: pull first, then read or make manual edits
 - if a non-host device edits the wiki, keep the change small and push it back promptly so the shared state stays coherent
 - if a non-host device needs original text from a local-only tracked project, ask the host machine for a source handoff and capture it in `raw/sources/` instead of leaving it in chat only
+- if a request should be durable and visible across devices, write it as a markdown file in `requests/open/`
 
 ## Requested source handoff
 
@@ -280,6 +282,26 @@ Recommended flow:
 
 Use [prompts/request-source-handoff.md](/C:/코딩/llm-wiki-workspace/prompts/request-source-handoff.md) as the standard starter.
 For a short copy-paste message from another device, use [prompts/source-handoff-request-template.md](/C:/코딩/llm-wiki-workspace/prompts/source-handoff-request-template.md).
+
+## File-based request queue
+
+Use this when a request should survive beyond one chat window.
+
+Structure:
+
+- `requests/open/`: new requests waiting for pickup
+- `requests/in-progress/`: currently being handled
+- `requests/done/`: completed requests with result links
+- `requests/templates/request-template.md`: starter format
+
+Recommended flow:
+
+1. create a request file in `requests/open/`
+2. when work starts, move it to `requests/in-progress/`
+3. complete the work and record result paths or commit hash
+4. move it to `requests/done/`
+
+Use [prompts/process-request-queue.md](/C:/코딩/llm-wiki-workspace/prompts/process-request-queue.md) when the host machine should process queued requests systematically.
 
 ## Practical success test
 

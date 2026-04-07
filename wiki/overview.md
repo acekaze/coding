@@ -33,3 +33,4 @@ The wiki started with the Karpathy-style operating pattern, and now also maps a 
 - many workstreams have rich local artifacts, but only a small portion of stable public URLs are currently captured in the wiki
 - cross-device viewing is now easy for the wiki itself, but deep source verification still depends on which tracked projects actually have shared remotes
 - the requested-source-handoff pattern now exists to bridge local-only source folders when another device needs the original text
+- the repository now also contains a file-based request queue so cross-device asks can survive beyond chat memory

@@ -22,6 +22,7 @@ This is the navigation entrypoint for the wiki.
 - [2026-04-07-windows-led-codex-refresh](./sources/2026-04-07-windows-led-codex-refresh.md): source page for restarting Codex at 08:55 so the automation window starts from a fresh app state
 - [2026-04-07-tracked-project-access-registry](./sources/2026-04-07-tracked-project-access-registry.md): source page for which tracked projects are actually portable across devices today
 - [2026-04-07-requested-source-handoff-workflow](./sources/2026-04-07-requested-source-handoff-workflow.md): source page for how the host machine should provide local-only source text on request
+- [2026-04-07-file-based-request-queue](./sources/2026-04-07-file-based-request-queue.md): source page for the repository-native request queue across PCs and Macs
 
 ## Entities
 
@@ -47,3 +48,4 @@ This is the navigation entrypoint for the wiki.
 - [internal-wiki-operations-loop](./analyses/internal-wiki-operations-loop.md): practical answer for how to run this wiki as a first-launch internal operating layer
 - [cross-device-source-basis-policy](./analyses/cross-device-source-basis-policy.md): how to read `Original workspace basis` safely on other devices
 - [requested-source-handoff-pattern](./analyses/requested-source-handoff-pattern.md): how to fulfill cross-device requests for original text without losing provenance
+- [cross-device-request-queue-pattern](./analyses/cross-device-request-queue-pattern.md): how to coordinate durable asks through repo files instead of chat only
