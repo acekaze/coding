@@ -49,3 +49,10 @@ Use this file as an append-only timeline.
 - captured the first morning run result where wake and launch succeeded but the Codex automation did not fire
 - changed the 08:55 Windows task to restart Codex if it is already open so the 09:00 automation gets a fresh app state
 - updated the operating guide, index, and operations analysis to reflect the refreshed Windows-led morning flow
+
+## [2026-04-07] ingest | public launch and proposal expansion
+
+- added raw notes and source pages for the 공개과정 public launch stack and the Samsung REFRAME jobcrafting proposal
+- updated the public-course and ai-education-proposal-portfolio entities so the latest launch and proposal-factory signals are visible from the main graph
+- updated the overview and portfolio-map analysis to reflect that the public course is now materially 2-day at the public layer and that the proposal workspace is expanding beyond AI-only packaging
+- scanned 청소년을 위한 말처방, 교육설계, and 전종목 again but did not ingest new pages for this round because no equally material new source layer was found

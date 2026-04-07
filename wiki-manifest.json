@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-07 10:52 대한민국 표준시",
+  "generated_at": "2026-04-07 11:01 대한민국 표준시",
   "entries": [
     {
       "path": "wiki/analyses/current-workstream-map-2026-04.md",
@@ -76,7 +76,7 @@
       "section": "entities",
       "title": "ai-education-proposal-portfolio",
       "heading": "AI education proposal portfolio",
-      "summary": "The proposal portfolio is a B2B packaging system that turns AI education into role-specific, purchase-ready programs backed by operational artifacts."
+      "summary": "The proposal portfolio is a B2B packaging system that turns AI education into role-specific, purchase-ready programs backed by operational artifacts. It is also starting to act like a broader proposal factory for adjacent workforce-redesign offers."
     },
     {
       "path": "wiki/entities/andrej-karpathy.md",
@@ -104,7 +104,7 @@
       "section": "entities",
       "title": "public-course",
       "heading": "Public course",
-      "summary": "The public course is a premium learning-product workstream for working instructors, centered on redesigning a real lecture through practice, feedback, and assetization."
+      "summary": "The public course is a premium learning-product workstream for working instructors, centered on redesigning a real lecture through practice, feedback, and assetization. It now also has a concrete public launch layer with a 2-day landing page, application flow, and hosting configuration."
     },
     {
       "path": "wiki/entities/README.md",
@@ -203,6 +203,20 @@
       "title": "2026-04-06-youth-speech-prescription-workstream",
       "heading": "Youth speech prescription workstream",
       "summary": "A derived note about the `청소년을 위한 말처방` workspace, based on the current research memo, deeper report, and the presence of the original adult book PDF."
+    },
+    {
+      "path": "wiki/sources/2026-04-07-public-course-public-launch.md",
+      "section": "sources",
+      "title": "2026-04-07-public-course-public-launch",
+      "heading": "Public course public launch",
+      "summary": "A derived note about the latest public launch layer in `공개과정`, based on the landing page, application automation, and hosting configuration that now sit on top of the earlier planning documents."
+    },
+    {
+      "path": "wiki/sources/2026-04-07-samsung-jobcrafting-proposal.md",
+      "section": "sources",
+      "title": "2026-04-07-samsung-jobcrafting-proposal",
+      "heading": "Samsung jobcrafting proposal",
+      "summary": "A derived note about a Samsung-targeted REFRAME jobcrafting proposal in `제안서`, based on the written proposal drafts and the generated slide-deck builder."
     },
     {
       "path": "wiki/sources/2026-04-07-windows-led-codex-refresh.md",

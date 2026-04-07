@@ -2,11 +2,13 @@
 title: ai-education-proposal-portfolio
 type: entity
 created: 2026-04-06
-updated: 2026-04-06
+updated: 2026-04-07
 source_files:
   - raw/sources/2026-04-06-ai-education-proposals-workstream-notes.md
+  - raw/sources/2026-04-07-samsung-jobcrafting-proposal-notes.md
 related:
   - wiki/sources/2026-04-06-ai-education-proposals-workstream.md
+  - wiki/sources/2026-04-07-samsung-jobcrafting-proposal.md
   - wiki/entities/instructional-design-workbench.md
   - wiki/concepts/dual-track-ai-education-manager-vs-practitioner.md
   - wiki/concepts/reusable-education-operations-assets.md
@@ -17,10 +19,12 @@ related:
 ## Summary
 
 The proposal portfolio is a B2B packaging system that turns AI education into role-specific, purchase-ready programs backed by operational artifacts.
+It is also starting to act like a broader proposal factory for adjacent workforce-redesign offers.
 
 ## What this entity is
 
 A proposal and asset workspace in `C:/코딩/제안서` containing approval-ready documents, slide decks, templates, scripts, and rendered outputs for AI education offers.
+The latest read artifacts suggest that the same machinery now also supports adjacent enterprise redesign proposals such as jobcrafting programs.
 
 ## Why it matters in this wiki
 
@@ -34,6 +38,8 @@ It also provides evidence that AI education is being designed around organizatio
 - practitioner proposals emphasize grounding, prompt structure, document workflows, and quality gates
 - reusable artifacts such as promptbooks, templates, dashboards, and logs are treated as part of the offer, not side effects
 - the folder also appears to operate as a reusable proposal factory with multiple templates and slide-generation assets
+- the latest Samsung REFRAME proposal expands the workspace beyond pure AI education into job exploration and jobcrafting for 50+ employees
+- the newer proposal corpus flexes packaging by operating scale as well as role, using distinct 500-person and 100-person versions
 
 ## Relationships
 
@@ -41,7 +47,9 @@ It also provides evidence that AI education is being designed around organizatio
 - concept: [dual-track-ai-education-manager-vs-practitioner](../concepts/dual-track-ai-education-manager-vs-practitioner.md)
 - concept: [reusable-education-operations-assets](../concepts/reusable-education-operations-assets.md)
 - source page: [2026-04-06-ai-education-proposals-workstream](../sources/2026-04-06-ai-education-proposals-workstream.md)
+- source page: [2026-04-07-samsung-jobcrafting-proposal](../sources/2026-04-07-samsung-jobcrafting-proposal.md)
 
 ## Source basis
 
 - `raw/sources/2026-04-06-ai-education-proposals-workstream-notes.md`
+- `raw/sources/2026-04-07-samsung-jobcrafting-proposal-notes.md`

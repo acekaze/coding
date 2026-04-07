@@ -13,9 +13,9 @@ The wiki started with the Karpathy-style operating pattern, and now also maps a 
 ## Major threads
 
 - [jeon-jongmok](./entities/jeon-jongmok.md): worldview anchor connecting B2B and B2C expressions
-- [public-course](./entities/public-course.md): public premium product for working instructors
+- [public-course](./entities/public-course.md): public premium product for working instructors, now with a concrete 2-day launch layer
 - [youth-speech-prescription](./entities/youth-speech-prescription.md): youth adaptation of an adult language-and-relationship framework
-- [ai-education-proposal-portfolio](./entities/ai-education-proposal-portfolio.md): B2B packaging for role-specific AI education
+- [ai-education-proposal-portfolio](./entities/ai-education-proposal-portfolio.md): B2B packaging for role-specific AI education and adjacent workforce-redesign proposals
 - [instructional-design-workbench](./entities/instructional-design-workbench.md): delivery engine of guides, decks, and participant artifacts
 
 ## Recurring concepts
@@ -27,6 +27,7 @@ The wiki started with the Karpathy-style operating pattern, and now also maps a 
 
 ## Open questions
 
-- the public course currently has planning drift in the source set on whether the flagship format is 2 days or 3 days
+- the public course now looks publicly stabilized as a 2-day launch, but older internal documents still preserve the earlier 3-day history
 - the youth adaptation is well supported by research notes but not yet by ingested rewritten chapters
+- the proposal workspace is beginning to outgrow an AI-only label, but the long-term naming boundary is not settled yet
 - many workstreams have rich local artifacts, but only a small portion of stable public URLs are currently captured in the wiki

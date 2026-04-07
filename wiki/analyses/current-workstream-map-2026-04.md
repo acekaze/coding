@@ -2,11 +2,13 @@
 title: current-workstream-map-2026-04
 type: analysis
 created: 2026-04-06
-updated: 2026-04-06
+updated: 2026-04-07
 source_files:
   - raw/sources/2026-04-06-public-course-workstream-notes.md
+  - raw/sources/2026-04-07-public-course-public-launch-notes.md
   - raw/sources/2026-04-06-youth-speech-prescription-workstream-notes.md
   - raw/sources/2026-04-06-ai-education-proposals-workstream-notes.md
+  - raw/sources/2026-04-07-samsung-jobcrafting-proposal-notes.md
   - raw/sources/2026-04-06-instructional-design-workstream-notes.md
   - raw/sources/2026-04-06-jeon-jongmok-context-notes.md
 related:
@@ -27,18 +29,18 @@ How do the currently active workstreams fit together as one coherent map?
 
 They look like one ecosystem organized around Jeon Jong-mok's interpretation-centered education worldview:
 
-- `public-course` is the public premium product
+- `public-course` is the public premium product, now visibly moving through a real launch stack
 - `youth-speech-prescription` is the B2C editorial adaptation
-- `ai-education-proposal-portfolio` is the B2B commercial packaging layer
+- `ai-education-proposal-portfolio` is the B2B commercial packaging layer, now broader than AI-only proposals
 - `instructional-design-workbench` is the delivery and asset-production engine
 - `jeon-jongmok` is the worldview anchor tying the layers together
 
 ## Evidence from the wiki
 
 - [jeon-jongmok](../entities/jeon-jongmok.md) bridges B2B execution themes and B2C meaning/recovery themes
-- [public-course](../entities/public-course.md) converts the worldview into a direct public offer for working instructors
+- [public-course](../entities/public-course.md) converts the worldview into a direct public offer for working instructors and now has a real intake-ready launch layer
 - [youth-speech-prescription](../entities/youth-speech-prescription.md) translates the worldview into a youth-safe publishing form
-- [ai-education-proposal-portfolio](../entities/ai-education-proposal-portfolio.md) turns the same stance into enterprise buying language and role-specific programs
+- [ai-education-proposal-portfolio](../entities/ai-education-proposal-portfolio.md) turns the same stance into enterprise buying language, role-specific AI programs, and adjacent workforce-redesign proposals
 - [instructional-design-workbench](../entities/instructional-design-workbench.md) provides the course-construction machinery that makes enterprise delivery repeatable
 
 ## Interpretation
@@ -51,11 +53,17 @@ It reads like a system that repeatedly does the same high-level move in differen
 - turn the language into a structured product or learning experience
 - keep the resulting assets so the work compounds
 
+The latest updates make the system look more concrete in two ways:
+
+- the public-course layer now includes public-facing launch and intake infrastructure
+- the proposal layer now shows it can translate the worldview into non-AI enterprise redesign offers when the organizational problem demands it
+
 ## Open uncertainty
 
-- the public course still shows document-level drift on whether the flagship format is 2 days or 3 days
+- older public-course documents still preserve 3-day language, even though the latest public-facing layer is now consistently 2-day
 - the youth book adaptation is well supported by research notes but not yet by ingested rewritten manuscript chapters
-- many workstreams are richly documented locally but do not yet have stable public URLs captured in the wiki
+- the proposal workspace is starting to outgrow the current entity name if more adjacent non-AI proposals accumulate
+- many workstreams are richly documented locally but do not yet have stable public URLs captured in the wiki, although the public-course application link is now captured
 
 ## Related pages
 

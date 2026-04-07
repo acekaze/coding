@@ -10,8 +10,10 @@ This is the navigation entrypoint for the wiki.
 
 - [2026-04-06-karpathy-llm-wiki](./sources/2026-04-06-karpathy-llm-wiki.md): seed source page for the Karpathy-inspired pattern
 - [2026-04-06-public-course-workstream](./sources/2026-04-06-public-course-workstream.md): source page for the 공개과정 premium open-course workstream
+- [2026-04-07-public-course-public-launch](./sources/2026-04-07-public-course-public-launch.md): source page for the public launch layer, application flow, and hosting setup of 공개과정
 - [2026-04-06-youth-speech-prescription-workstream](./sources/2026-04-06-youth-speech-prescription-workstream.md): source page for the youth adaptation of `어른을 위한 말처방`
 - [2026-04-06-ai-education-proposals-workstream](./sources/2026-04-06-ai-education-proposals-workstream.md): source page for the AI education proposal portfolio
+- [2026-04-07-samsung-jobcrafting-proposal](./sources/2026-04-07-samsung-jobcrafting-proposal.md): source page for the Samsung REFRAME jobcrafting proposal and proposal-portfolio expansion
 - [2026-04-06-instructional-design-workstream](./sources/2026-04-06-instructional-design-workstream.md): source page for the enterprise instructional design workspace
 - [2026-04-06-jeon-jongmok-context](./sources/2026-04-06-jeon-jongmok-context.md): source page for the long-form worldview context around Jeon Jong-mok
 - [2026-04-06-first-launch-wiki-routine](./sources/2026-04-06-first-launch-wiki-routine.md): source page for the decision to run the wiki loop at first launch instead of a fixed 09:00 schedule
