@@ -233,6 +233,37 @@ Use this split:
 - other devices: pull, inspect, query, and manually improve
 - static host such as Vercel: shared browser view of the latest pushed state
 
+## Other-device quick start
+
+Use this when setting up another laptop or PC for the same wiki.
+
+Clone:
+
+```text
+git clone https://github.com/acekaze/llm-wiki-workspace.git
+cd llm-wiki-workspace
+```
+
+Before working:
+
+```text
+git pull origin main
+```
+
+For local browser viewing:
+
+```text
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+Use this rule:
+
+- host machine: automatic morning sync
+- other devices: pull first, then read or make manual edits
+- if a non-host device edits the wiki, keep the change small and push it back promptly so the shared state stays coherent
+
 ## Practical success test
 
 This wiki is working if, before starting a new proposal, course, or writing task, you can answer:

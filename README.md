@@ -190,5 +190,37 @@ The wake timer pattern is designed for sleep or hibernate recovery.
 If you need power-on from a full shutdown, that depends on BIOS RTC power-on settings.
 The 08:55 host task restarts Codex first if it is already open, so the 09:00 automation gets a fresh app state.
 
+## Other-device quick start
+
+On another device, use GitHub as the source of truth and treat this machine as the automatic sync host.
+
+Clone the repository:
+
+```text
+git clone https://github.com/acekaze/llm-wiki-workspace.git
+cd llm-wiki-workspace
+```
+
+Pull before starting work:
+
+```text
+git pull origin main
+```
+
+View locally:
+
+```text
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000
+```
+
+If the other device only needs to read the wiki, prefer the shared browser deployment link.
+If it needs to edit the wiki, pull first, make small changes, regenerate `wiki-manifest.json` if needed, then commit and push back to `main`.
+
 Start simple first.
 You do not need special tooling before the markdown structure becomes useful.

@@ -56,3 +56,9 @@ Use this file as an append-only timeline.
 - updated the public-course and ai-education-proposal-portfolio entities so the latest launch and proposal-factory signals are visible from the main graph
 - updated the overview and portfolio-map analysis to reflect that the public course is now materially 2-day at the public layer and that the proposal workspace is expanding beyond AI-only packaging
 - scanned 청소년을 위한 말처방, 교육설계, and 전종목 again but did not ingest new pages for this round because no equally material new source layer was found
+
+## [2026-04-07] access | cross-device quick start
+
+- created a new Vercel preview deployment for shared browser access
+- added GitHub clone and local-viewer steps to the README and operating guide for non-host devices
+- kept the automation rule explicit that only one host machine should run the morning auto-sync
