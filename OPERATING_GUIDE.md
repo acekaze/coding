@@ -263,6 +263,22 @@ Use this rule:
 - host machine: automatic morning sync
 - other devices: pull first, then read or make manual edits
 - if a non-host device edits the wiki, keep the change small and push it back promptly so the shared state stays coherent
+- if a non-host device needs original text from a local-only tracked project, ask the host machine for a source handoff and capture it in `raw/sources/` instead of leaving it in chat only
+
+## Requested source handoff
+
+Use this when another device needs the original text behind a wiki claim but cannot open the underlying local project folder.
+
+Recommended flow:
+
+1. identify the exact source question or file path needed
+2. on the host machine, open the original local file
+3. create a new immutable raw note in `raw/sources/`
+4. include provenance such as the original path, handoff date, and whether the content is a full copy, excerpt pack, or structured notes
+5. update the linked source or analysis page in `wiki/`
+6. commit and push so the handoff becomes reusable on every device
+
+Use [prompts/request-source-handoff.md](/C:/코딩/llm-wiki-workspace/prompts/request-source-handoff.md) as the standard starter.
 
 ## Practical success test
 

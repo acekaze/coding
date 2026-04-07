@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-07 11:25 대한민국 표준시",
+  "generated_at": "2026-04-07 11:33 대한민국 표준시",
   "entries": [
     {
       "path": "wiki/analyses/cross-device-source-basis-policy.md",
@@ -28,6 +28,13 @@
       "title": "README",
       "heading": "Analysis Pages",
       "summary": "Use this folder for reusable answers that emerged from questions."
+    },
+    {
+      "path": "wiki/analyses/requested-source-handoff-pattern.md",
+      "section": "analyses",
+      "title": "requested-source-handoff-pattern",
+      "heading": "Requested source handoff pattern",
+      "summary": "Yes. The host machine should provide the source through a tracked handoff, not a disposable chat answer."
     },
     {
       "path": "wiki/concepts/dual-track-ai-education-manager-vs-practitioner.md",
@@ -217,6 +224,13 @@
       "title": "2026-04-07-public-course-public-launch",
       "heading": "Public course public launch",
       "summary": "A derived note about the latest public launch layer in `공개과정`, based on the landing page, application automation, and hosting configuration that now sit on top of the earlier planning documents."
+    },
+    {
+      "path": "wiki/sources/2026-04-07-requested-source-handoff-workflow.md",
+      "section": "sources",
+      "title": "2026-04-07-requested-source-handoff-workflow",
+      "heading": "Requested source handoff workflow",
+      "summary": "A derived note describing how the host machine should respond when another device asks for original text from a tracked project that is not directly shared there."
     },
     {
       "path": "wiki/sources/2026-04-07-samsung-jobcrafting-proposal.md",

@@ -32,3 +32,4 @@ The wiki started with the Karpathy-style operating pattern, and now also maps a 
 - the proposal workspace is beginning to outgrow an AI-only label, but the long-term naming boundary is not settled yet
 - many workstreams have rich local artifacts, but only a small portion of stable public URLs are currently captured in the wiki
 - cross-device viewing is now easy for the wiki itself, but deep source verification still depends on which tracked projects actually have shared remotes
+- the requested-source-handoff pattern now exists to bridge local-only source folders when another device needs the original text

@@ -103,6 +103,7 @@ If you want this wiki to stay useful, run it as a loop instead of as an occasion
 - use [OPERATING_GUIDE.md](/C:/코딩/llm-wiki-workspace/OPERATING_GUIDE.md) as the main operating handbook
 - use [prompts/daily-morning-loop.md](/C:/코딩/llm-wiki-workspace/prompts/daily-morning-loop.md) for the first-launch morning scan and update loop
 - use [prompts/automated-wiki-sync.md](/C:/코딩/llm-wiki-workspace/prompts/automated-wiki-sync.md) for the automatic host-mode sync logic
+- use [prompts/request-source-handoff.md](/C:/코딩/llm-wiki-workspace/prompts/request-source-handoff.md) when another device needs original text from a local-only tracked project
 - use [prompts/weekly-wiki-review.md](/C:/코딩/llm-wiki-workspace/prompts/weekly-wiki-review.md) for the deeper weekly cleanup
 
 The default tracked project set is:
@@ -221,6 +222,7 @@ http://localhost:8000
 
 If the other device only needs to read the wiki, prefer the shared browser deployment link.
 If it needs to edit the wiki, pull first, make small changes, regenerate `wiki-manifest.json` if needed, then commit and push back to `main`.
+If it needs original text from a local-only tracked project, request a source handoff and let the host machine write that evidence into `raw/sources/` so the answer becomes portable afterward.
 
 Start simple first.
 You do not need special tooling before the markdown structure becomes useful.

@@ -12,11 +12,13 @@ related:
   - wiki/log.md
   - wiki/analyses/current-workstream-map-2026-04.md
   - wiki/analyses/cross-device-source-basis-policy.md
+  - wiki/analyses/requested-source-handoff-pattern.md
   - wiki/sources/2026-04-06-first-launch-wiki-routine.md
   - wiki/sources/2026-04-06-automated-codex-wiki-sync.md
   - wiki/sources/2026-04-06-codex-host-wake-timer.md
   - wiki/sources/2026-04-07-windows-led-codex-refresh.md
   - wiki/sources/2026-04-07-tracked-project-access-registry.md
+  - wiki/sources/2026-04-07-requested-source-handoff-workflow.md
 ---
 
 # Internal wiki operations loop
@@ -53,6 +55,7 @@ Either run the loop when Codex is first opened each morning, or use one designat
 - turn reusable answers into `analysis` pages
 - update existing pages when the baseline changes
 - if a source path matters on another machine, check the tracked-project registry before assuming the original folder is portable
+- if another device needs original text from a local-only folder, use a tracked source handoff instead of giving a disposable chat-only excerpt
 
 ### Weekly
 
@@ -77,6 +80,7 @@ Its job is to help the next decision begin with orientation instead of re-discov
 
 - [current-workstream-map-2026-04](./current-workstream-map-2026-04.md)
 - [cross-device-source-basis-policy](./cross-device-source-basis-policy.md)
+- [requested-source-handoff-pattern](./requested-source-handoff-pattern.md)
 - [overview](../overview.md)
 - [index](../index.md)
 - [log](../log.md)

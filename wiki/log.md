@@ -68,3 +68,9 @@ Use this file as an append-only timeline.
 - added a tracked-project access registry showing which source projects are local-only, local git, or GitHub-backed
 - added a reusable analysis page explaining how to interpret `Original workspace basis` safely on other devices
 - kept the rule explicit that `raw/sources/` is the portable minimum evidence layer when source folders are not shared
+
+## [2026-04-07] access | requested source handoff pattern
+
+- added a standard workflow for answering cross-device requests for original text from local-only tracked projects
+- added a prompt starter and linked source/analysis pages so source handoffs become reusable repository artifacts
+- made the rule explicit that requested source text should be written into `raw/sources/` instead of being left only in chat

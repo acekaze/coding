@@ -7,6 +7,8 @@ source_files:
   - raw/sources/2026-04-07-tracked-project-access-registry-notes.md
 related:
   - wiki/sources/2026-04-07-tracked-project-access-registry.md
+  - wiki/sources/2026-04-07-requested-source-handoff-workflow.md
+  - wiki/analyses/requested-source-handoff-pattern.md
   - wiki/overview.md
   - wiki/analyses/internal-wiki-operations-loop.md
 ---
@@ -26,6 +28,7 @@ Treat `Original workspace basis` as a provenance pointer that may or may not be 
 
 - if a claim is already captured in `raw/sources/` and summarized in `wiki/`, the page is still usable even when the original project path is unavailable
 - if deeper source re-checking matters, use the tracked-project registry to see whether the underlying project is on GitHub, local-only, or a local repo without a remote
+- if another device needs the original text from a local-only source, fulfill a tracked source handoff so the requested evidence becomes portable afterward
 - when a project becomes operationally important across devices, give it its own shared remote or replicate that project folder on the other machine
 
 ## What this means in practice
@@ -49,5 +52,7 @@ Treat `Original workspace basis` as a provenance pointer that may or may not be 
 ## Related pages
 
 - [2026-04-07-tracked-project-access-registry](../sources/2026-04-07-tracked-project-access-registry.md)
+- [2026-04-07-requested-source-handoff-workflow](../sources/2026-04-07-requested-source-handoff-workflow.md)
+- [requested-source-handoff-pattern](./requested-source-handoff-pattern.md)
 - [internal-wiki-operations-loop](./internal-wiki-operations-loop.md)
 - [overview](../overview.md)
