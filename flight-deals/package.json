@@ -1,0 +1,13 @@
+{
+  "name": "flight-deals-alerter",
+  "version": "1.0.0",
+  "description": "한국 출발 항공권 땡처리 알리미 (개인용, 로컬 서버 + Sky Scrapper API)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
