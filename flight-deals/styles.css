@@ -406,3 +406,25 @@ select:focus {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+
+.card-info {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.card-error {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255, 93, 93, 0.12);
+  border: 1px solid rgba(255, 93, 93, 0.35);
+  color: #ffb3b3;
+  font-size: 0.8rem;
+}
+
+.secondary-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

@@ -42,26 +42,29 @@ function saveWatches() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(watches));
 }
 
-// ---------- mock 가격 로직 ----------
-// 조건마다 고정된 "기준가"를 만들어두고, 확인할 때마다 그 주변에서 흔들리게 합니다.
-// 그래야 같은 조건은 대체로 비슷한 가격대에서 오르내려 실제처럼 보입니다.
-function seededBase(watch) {
-  const str = `${watch.origin}|${watch.destination}`;
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
-  }
-  // 18만 ~ 78만 원 사이 기준가
-  return 180000 + (hash % 60) * 10000;
+// ---------- 실제 가격 조회 ----------
+// 로컬 서버(server.js)의 /api/price를 호출합니다.
+// 서버가 RapidAPI(Sky Scrapper)를 대신 불러서 실제 최저가를 돌려줍니다.
+//
+// 무료 플랜은 월 100회 제한이라, 기간 전체가 아니라
+// "기간 중 대표 날짜 한 개"만 조회합니다. (기본: 기간 시작일)
+function checkDateFor(watch) {
+  return watch.dateFrom; // 기간 시작일을 대표로 조회
 }
 
-function fetchPrice(watch) {
-  // 2차 단계: 이 함수만 실제 API 호출로 교체하면 됩니다.
-  const base = seededBase(watch);
-  const swing = base * 0.35; // ±35% 변동
-  const noise = (Math.random() - 0.5) * 2 * swing;
-  const price = Math.max(50000, Math.round((base + noise) / 1000) * 1000);
-  return price;
+async function fetchPrice(watch) {
+  const date = checkDateFor(watch);
+  const params = new URLSearchParams({
+    origin: watch.origin,
+    destination: watch.destination,
+    date,
+  });
+  const res = await fetch(`/api/price?${params.toString()}`);
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.error || `가격 조회 실패 (${res.status})`);
+  }
+  return data; // { price, carrier, stops, departure, from, to } 또는 { price: null, message }
 }
 
 // ---------- 조건 등록 ----------
@@ -92,17 +95,41 @@ els.form.addEventListener("submit", (e) => {
   render();
   els.form.reset();
   els.formHint.style.color = "var(--good)";
-  els.formHint.textContent = "등록했습니다. '지금 가격 확인'을 눌러 시작해보세요.";
+  els.formHint.textContent = "등록했습니다. 실제 가격을 확인하는 중...";
 
   // 등록 직후 한 번 확인
-  checkOne(watch);
-  saveWatches();
-  render();
+  checkOne(watch).then(() => {
+    saveWatches();
+    render();
+    els.formHint.textContent = watch.error
+      ? `등록됨. 다만 조회 문제: ${watch.error}`
+      : "등록하고 실제 가격을 확인했습니다.";
+  });
 });
 
 // ---------- 가격 확인 ----------
-function checkOne(watch) {
-  const price = fetchPrice(watch);
+async function checkOne(watch) {
+  watch.error = null;
+  let result;
+  try {
+    result = await fetchPrice(watch);
+  } catch (err) {
+    watch.error = String(err.message || err);
+    return false;
+  }
+
+  const price = result.price;
+  if (price == null) {
+    // 해당 날짜에 항공권이 없거나 가격 없음
+    watch.error = result.message || "가격 정보 없음";
+    return false;
+  }
+
+  watch.lastInfo = {
+    carrier: result.carrier,
+    stops: result.stops,
+    checkedAt: Date.now(),
+  };
   watch.history.push(price);
   if (watch.history.length > MAX_HISTORY) {
     watch.history = watch.history.slice(-MAX_HISTORY);
@@ -120,15 +147,22 @@ function checkOne(watch) {
   return isDeal;
 }
 
-function checkAll() {
-  watches.forEach(checkOne);
+async function checkAll() {
+  els.checkNow.disabled = true;
+  els.checkNow.textContent = "확인 중...";
+  // 순차 처리 (동시 호출로 무료 한도가 순식간에 소진되는 것 방지)
+  for (const w of watches) {
+    await checkOne(w);
+    render();
+  }
   saveWatches();
   render();
   els.lastCheck.textContent = new Date().toLocaleTimeString("ko-KR", {
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit",
   });
+  els.checkNow.disabled = false;
+  els.checkNow.textContent = "지금 가격 확인";
 }
 
 els.checkNow.addEventListener("click", () => {
@@ -154,9 +188,10 @@ function setupAuto() {
     autoTimer = null;
   }
   if (els.autoCheck.checked) {
+    // 무료 플랜(월 100회) 보호를 위해 6시간마다만 자동 확인 (하루 약 4회)
     autoTimer = setInterval(() => {
       if (watches.length > 0) checkAll();
-    }, 30000);
+    }, 6 * 60 * 60 * 1000);
   }
 }
 
@@ -239,11 +274,22 @@ function renderCard(w) {
   const cur = currentPrice(w);
   const dealNow = cur != null && cur <= w.targetPrice;
 
+  const info = w.lastInfo
+    ? `<div class="card-info">${escapeHtml(w.lastInfo.carrier || "-")}${
+        w.lastInfo.stops != null
+          ? " · " + (w.lastInfo.stops === 0 ? "직항" : w.lastInfo.stops + "회 경유")
+          : ""
+      }</div>`
+    : "";
+  const errRow = w.error
+    ? `<div class="card-error">⚠ ${escapeHtml(w.error)}</div>`
+    : "";
+
   card.innerHTML = `
     <div class="card-top">
       <div>
         <div class="route">${escapeHtml(w.origin)}<span class="arrow">→</span>${escapeHtml(w.destination)}</div>
-        <div class="card-meta">${escapeHtml(w.dateFrom)} ~ ${escapeHtml(w.dateTo)}</div>
+        <div class="card-meta">${escapeHtml(w.dateFrom)} ~ ${escapeHtml(w.dateTo)} · 조회일 ${escapeHtml(w.dateFrom)}</div>
       </div>
       <button class="card-remove" title="삭제" data-id="${w.id}">×</button>
     </div>
@@ -251,6 +297,8 @@ function renderCard(w) {
       <span class="current-price">${cur != null ? formatWon(cur) : "-"}</span>
       <span class="target-price">목표 ${formatWon(w.targetPrice)}</span>
     </div>
+    ${info}
+    ${errRow}
     <span class="deal-badge ${dealNow ? "deal" : "watching"}">
       ${dealNow ? "지금 딜입니다" : "가격 지켜보는 중"}
     </span>
