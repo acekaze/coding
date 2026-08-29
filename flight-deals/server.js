@@ -20,7 +20,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 8787;
 const RAPIDAPI_HOST = "sky-scrapper.p.rapidapi.com";
 
-// ---- API 키 로드 (.env 파일에서, 없으면 환경변수에서) ----
+// ---- API 키 로드 ----
+// 우선순위: 환경변수 > .env 파일 > 아래 코드 기본값
+// 개인용이라 .env 없이 그냥 실행되게 코드에 키를 넣어둠.
+const DEFAULT_API_KEY = "79802b3a84mshde507b15d9ba75bp1f235ajsn3284a18162f4";
+
 import { readFileSync } from "node:fs";
 function readApiKey() {
   if (process.env.RAPIDAPI_KEY) return process.env.RAPIDAPI_KEY.trim();
@@ -28,9 +32,12 @@ function readApiKey() {
   if (existsSync(envPath)) {
     const raw = readFileSync(envPath, "utf8");
     const line = raw.split(/\r?\n/).find((l) => l.trim().startsWith("RAPIDAPI_KEY="));
-    if (line) return line.slice(line.indexOf("=") + 1).trim();
+    if (line) {
+      const val = line.slice(line.indexOf("=") + 1).trim();
+      if (val) return val;
+    }
   }
-  return null;
+  return DEFAULT_API_KEY;
 }
 
 const API_KEY = readApiKey();
