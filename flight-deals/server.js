@@ -89,8 +89,28 @@ function normalizeCity(raw) {
 }
 
 // ---- 공항 검색 캐시 (도시명 -> {skyId, entityId}) ----
-// 같은 도시를 반복 검색하지 않도록 메모리에 저장 (서버 켜있는 동안 유지)
-const airportCache = new Map();
+// 파일에 저장해 서버를 껐다 켜도 유지됨.
+// 한 번 찾은 도시는 다시 API를 쓰지 않아 무료 호출을 크게 아낌.
+import { writeFileSync } from "node:fs";
+const CACHE_FILE = path.join(__dirname, "airport-cache.json");
+
+function loadAirportCache() {
+  try {
+    if (existsSync(CACHE_FILE)) {
+      const obj = JSON.parse(readFileSync(CACHE_FILE, "utf8"));
+      return new Map(Object.entries(obj));
+    }
+  } catch {}
+  return new Map();
+}
+
+const airportCache = loadAirportCache();
+
+function saveAirportCache() {
+  try {
+    writeFileSync(CACHE_FILE, JSON.stringify(Object.fromEntries(airportCache), null, 2));
+  } catch {}
+}
 
 async function searchAirport(rawQuery) {
   const query = normalizeCity(rawQuery);
@@ -120,10 +140,22 @@ async function searchAirport(rawQuery) {
     throw new Error(`'${query}'의 공항 코드를 해석하지 못했습니다.`);
   }
   airportCache.set(key, resolved);
+  saveAirportCache(); // 파일에 저장 -> 다음부터 이 도시는 API 안 씀
   return resolved;
 }
 
+// 가격 결과 단기 캐시 (같은 조건 반복 조회 시 API를 다시 쓰지 않음)
+// 실수로 "지금 확인"을 연타해도 호출이 안 나가게 막아줌.
+const PRICE_CACHE_TTL_MS = 10 * 60 * 1000; // 10분
+const priceCache = new Map();
+
 async function searchCheapestFlight({ origin, destination, date, returnDate }) {
+  const cacheKey = `${normalizeCity(origin)}|${normalizeCity(destination)}|${date}|${returnDate || ""}`;
+  const cached = priceCache.get(cacheKey);
+  if (cached && Date.now() - cached.at < PRICE_CACHE_TTL_MS) {
+    return { ...cached.value, cached: true };
+  }
+
   const from = await searchAirport(origin);
   const to = await searchAirport(destination);
 
@@ -177,7 +209,13 @@ async function searchCheapestFlight({ origin, destination, date, returnDate }) {
     }
   }
   if (cheapest) delete cheapest.priceRaw;
-  return cheapest || { price: null, message: "가격 정보를 찾지 못했습니다." };
+  const result = cheapest || { price: null, message: "가격 정보를 찾지 못했습니다." };
+
+  // 결과가 있으면 단기 캐시에 저장 (10분간 재사용)
+  if (result.price != null) {
+    priceCache.set(cacheKey, { at: Date.now(), value: result });
+  }
+  return result;
 }
 
 // ---- 정적 파일 서빙 ----
