@@ -44,19 +44,20 @@
           <form id="watch-form" class="watch-form" autocomplete="off">
             <div class="field">
               <label for="origin">출발지</label>
-              <input id="origin" name="origin" type="text" placeholder="예: 서울(ICN)" required />
+              <input id="origin" name="origin" type="text" value="서울" placeholder="예: 서울" required />
             </div>
             <div class="field">
               <label for="destination">도착지 / 지역</label>
-              <input id="destination" name="destination" type="text" placeholder="예: 도쿄(NRT), 후쿠오카" required />
+              <input id="destination" name="destination" type="text" placeholder="예: 도쿄, 방콕, 시드니" required />
+              <div id="city-chips" class="city-chips" aria-label="자주 쓰는 도시"></div>
             </div>
             <div class="field-row">
               <div class="field">
-                <label for="date-from">기간 시작</label>
+                <label for="date-from">가는 날</label>
                 <input id="date-from" name="dateFrom" type="date" required />
               </div>
               <div class="field">
-                <label for="date-to">기간 끝</label>
+                <label for="date-to">오는 날</label>
                 <input id="date-to" name="dateTo" type="date" required />
               </div>
             </div>
@@ -83,8 +84,8 @@
             </label>
           </div>
           <p class="mock-note">
-            실제 항공권 가격을 조회합니다(Sky Scrapper). 무료 플랜은 월 100회 제한이라
-            기간 중 시작일 하루만 조회하고, 자동 확인은 6시간 간격입니다.
+            실제 왕복 항공권 가격을 조회합니다(Sky Scrapper). 가는 날·오는 날 왕복 총액 기준입니다.
+            무료 플랜은 월 100회 제한이라 자동 확인은 6시간 간격이니 아껴 쓰세요.
           </p>
         </section>
 

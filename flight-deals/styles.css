@@ -428,3 +428,26 @@ select:focus {
   opacity: 0.6;
   cursor: default;
 }
+
+
+.city-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.city-chip {
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.city-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}

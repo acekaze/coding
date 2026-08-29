@@ -48,23 +48,20 @@ function saveWatches() {
 //
 // 무료 플랜은 월 100회 제한이라, 기간 전체가 아니라
 // "기간 중 대표 날짜 한 개"만 조회합니다. (기본: 기간 시작일)
-function checkDateFor(watch) {
-  return watch.dateFrom; // 기간 시작일을 대표로 조회
-}
-
 async function fetchPrice(watch) {
-  const date = checkDateFor(watch);
+  // 왕복 조회: 가는 날 = 기간 시작, 오는 날 = 기간 끝
   const params = new URLSearchParams({
     origin: watch.origin,
     destination: watch.destination,
-    date,
+    date: watch.dateFrom,
+    returnDate: watch.dateTo,
   });
   const res = await fetch(`/api/price?${params.toString()}`);
   const data = await res.json();
   if (!res.ok) {
     throw new Error(data.error || `가격 조회 실패 (${res.status})`);
   }
-  return data; // { price, carrier, stops, departure, from, to } 또는 { price: null, message }
+  return data; // { price, tripType, carrier, stops, ... } 또는 { price: null, message }
 }
 
 // ---------- 조건 등록 ----------
@@ -128,6 +125,8 @@ async function checkOne(watch) {
   watch.lastInfo = {
     carrier: result.carrier,
     stops: result.stops,
+    returnStops: result.returnStops,
+    tripType: result.tripType || "왕복",
     checkedAt: Date.now(),
   };
   watch.history.push(price);
@@ -274,11 +273,15 @@ function renderCard(w) {
   const cur = currentPrice(w);
   const dealNow = cur != null && cur <= w.targetPrice;
 
+  function stopText(n) {
+    if (n == null) return "";
+    return n === 0 ? "직항" : n + "회 경유";
+  }
   const info = w.lastInfo
-    ? `<div class="card-info">${escapeHtml(w.lastInfo.carrier || "-")}${
-        w.lastInfo.stops != null
-          ? " · " + (w.lastInfo.stops === 0 ? "직항" : w.lastInfo.stops + "회 경유")
-          : ""
+    ? `<div class="card-info">${escapeHtml(w.lastInfo.tripType || "왕복")} · ${escapeHtml(w.lastInfo.carrier || "-")}${
+        w.lastInfo.stops != null ? " · 가는편 " + stopText(w.lastInfo.stops) : ""
+      }${
+        w.lastInfo.returnStops != null ? " / 오는편 " + stopText(w.lastInfo.returnStops) : ""
       }</div>`
     : "";
   const errRow = w.error
@@ -289,7 +292,7 @@ function renderCard(w) {
     <div class="card-top">
       <div>
         <div class="route">${escapeHtml(w.origin)}<span class="arrow">→</span>${escapeHtml(w.destination)}</div>
-        <div class="card-meta">${escapeHtml(w.dateFrom)} ~ ${escapeHtml(w.dateTo)} · 조회일 ${escapeHtml(w.dateFrom)}</div>
+        <div class="card-meta">가는날 ${escapeHtml(w.dateFrom)} · 오는날 ${escapeHtml(w.dateTo)} (왕복)</div>
       </div>
       <button class="card-remove" title="삭제" data-id="${w.id}">×</button>
     </div>
@@ -345,6 +348,32 @@ function escapeHtml(s) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
+
+// ---------- 자주 쓰는 도시 빠른 입력 ----------
+const POPULAR_CITIES = [
+  "도쿄", "오사카", "후쿠오카", "삿포로", "오키나와",
+  "방콕", "다낭", "하노이", "싱가포르", "발리", "세부", "타이베이", "홍콩",
+  "시드니", "괌", "사이판", "오클랜드",
+  "두바이", "런던", "파리", "로마",
+  "하와이", "뉴욕", "로스앤젤레스",
+];
+
+function setupCityChips() {
+  const box = document.getElementById("city-chips");
+  if (!box) return;
+  POPULAR_CITIES.forEach((city) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "city-chip";
+    b.textContent = city;
+    b.addEventListener("click", () => {
+      els.destination.value = city;
+      els.destination.focus();
+    });
+    box.appendChild(b);
+  });
+}
+setupCityChips();
 
 // ---------- 초기 렌더 ----------
 render();
